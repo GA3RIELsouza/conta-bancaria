@@ -13,4 +13,28 @@ public class CpfTest
 		
 		assertEquals(retornoChamada, "132.428.729-24");
 	}
+	
+	@Test
+	void testRemoveMascara()
+	{
+		String retornoChamada = utilities.Cpf.removeMascara("132.428.729-24");
+		
+		assertEquals(retornoChamada, "13242872924");
+	}
+	
+	@Test
+	void testIsCpfTrue()
+	{
+		boolean retornoChamada = utilities.Cpf.isCpf("132.428.729-24");
+		
+		assertEquals(retornoChamada, true);
+	}
+	
+	@Test
+	void testIsCpfFalse()
+	{
+		boolean retornoChamada = utilities.Cpf.isCpf("111.222.333-44");
+		
+		assertEquals(retornoChamada, false);
+	}
 }

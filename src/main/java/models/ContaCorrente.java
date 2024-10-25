@@ -1,4 +1,4 @@
-package classes;
+package models;
 
 public final class ContaCorrente extends ContaBancaria
 {

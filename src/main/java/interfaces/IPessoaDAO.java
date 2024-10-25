@@ -1,7 +1,7 @@
 package interfaces;
 
 import java.util.List;
-import classes.Pessoa;
+import models.Pessoa;
 
 public interface IPessoaDAO
 {

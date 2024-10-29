@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public abstract class MySQL
 {
-	private static final String ADDRRESS  = "jdbc:mysql://localhost:3306/conta_bancaria";
+	private static final String ADDRESS  = "jdbc:mysql://localhost:3306/conta_bancaria";
 	private static final String USER     = "gerente_banco";
 	private static final String PASSWORD = "123";
 	
@@ -14,7 +14,7 @@ public abstract class MySQL
 	{
 		try
 		{
-			return DriverManager.getConnection(ADDRRESS, USER, PASSWORD);
+			return DriverManager.getConnection(ADDRESS, USER, PASSWORD);
 		}
 		catch(SQLException ex)
 		{

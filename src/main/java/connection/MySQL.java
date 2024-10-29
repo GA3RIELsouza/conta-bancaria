@@ -6,15 +6,15 @@ import java.sql.SQLException;
 
 public abstract class MySQL
 {
-	private static final String address  = "jdbc:mysql://localhost:3306/conta_bancaria";
-	private static final String user     = "gerente_banco";
-	private static final String password = "123";
+	private static final String ADDRRESS  = "jdbc:mysql://localhost:3306/conta_bancaria";
+	private static final String USER     = "gerente_banco";
+	private static final String PASSWORD = "123";
 	
 	public static Connection conectar()
 	{
 		try
 		{
-			return DriverManager.getConnection(address, user, password);
+			return DriverManager.getConnection(ADDRRESS, USER, PASSWORD);
 		}
 		catch(SQLException ex)
 		{

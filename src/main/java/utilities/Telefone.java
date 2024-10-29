@@ -1,13 +1,13 @@
 package utilities;
 
-public abstract class Telefone
+public final class Telefone
 {
-    public static final String regexAplicaMascaraCom9 = "(\\d{2})(\\d{5})(\\d{4})";
-    public static final String regexAplicaMascaraSem9 = "(\\d{2})(\\d{4})(\\d{4})";
-    public static final String placementAplicaMascara = "($1) $2-$3";
-    public static final String regexRemoveMascara     = "[^0-9]";
-    public static final String placementRemoveMascara = "";
-    public static final String[] dddsValidos =
+    public static final String REGEX_APLICA_MASCARA_COM_9 = "(\\d{2})(\\d{5})(\\d{4})";
+    public static final String REGEX_APLICA_MASCARA_SEM_9 = "(\\d{2})(\\d{4})(\\d{4})";
+    public static final String PLACEMENT_APLICA_MASCARA   = "($1) $2-$3";
+    public static final String REGEX_REMOVE_MASCARA       = "[^0-9]";
+    public static final String PLACEMENT_REMOVE_MASCARA   = "";
+    public static final String[] DDDS_VALIDOS =
     {
         "11", "12", "13", "14", "15", "16", "17", "18",
         "19", "21", "22", "24", "27", "28", "31", "32",
@@ -19,20 +19,22 @@ public abstract class Telefone
         "91", "92", "93", "94", "95", "96", "97", "98",
         "99"
     };
+
+    private Telefone(){}
     
     public static String aplicaMascara(String telefone)
     {
         return switch(telefone.length())
         {
-            case 11 -> telefone.replaceAll(regexAplicaMascaraCom9, placementAplicaMascara);
-            case 10 -> telefone.replaceAll(regexAplicaMascaraSem9, placementAplicaMascara);
+            case 11 -> telefone.replaceAll(REGEX_APLICA_MASCARA_COM_9, PLACEMENT_APLICA_MASCARA);
+            case 10 -> telefone.replaceAll(REGEX_APLICA_MASCARA_SEM_9, PLACEMENT_APLICA_MASCARA);
             default -> null;
         };
     }
     
     public static String removeMascara(String telefone)
     {
-        return telefone.replaceAll(regexRemoveMascara, placementRemoveMascara);
+        return telefone.replaceAll(REGEX_REMOVE_MASCARA, PLACEMENT_REMOVE_MASCARA);
     }
     
     public static boolean isTelefone(String telefone)
@@ -51,7 +53,7 @@ public abstract class Telefone
             return false;
         }
         
-        for(String dddV : dddsValidos)
+        for(String dddV : DDDS_VALIDOS)
             if(dddV.equals(ddd))
             {
                 isDddValido = true;

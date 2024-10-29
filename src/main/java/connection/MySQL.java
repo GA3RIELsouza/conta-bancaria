@@ -4,11 +4,13 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public abstract class MySQL
+public final class MySQL
 {
 	private static final String ADDRESS  = "jdbc:mysql://localhost:3306/conta_bancaria";
 	private static final String USER     = "gerente_banco";
 	private static final String PASSWORD = "banco123";
+
+	private MySQL(){}
 	
 	public static Connection conectar()
 	{

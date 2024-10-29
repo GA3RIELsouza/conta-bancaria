@@ -2,24 +2,26 @@ package utilities;
 
 import java.util.InputMismatchException;
 
-public abstract class Cpf
+public final class Cpf
 {
-    public static final String regexAplicaMascara     = "(\\d{3})(\\d{3})(\\d{3})(\\d{2})";
-    public static final String placementAplicaMascara = "$1.$2.$3-$4";
-    public static final String regexRemoveMascara     = "[^0-9]";
-    public static final String placementRemoveMascara = "";
+    public static final String REGEX_APLICA_MASCARA     = "(\\d{3})(\\d{3})(\\d{3})(\\d{2})";
+    public static final String PLACEMENT_APLICA_MASCARA = "$1.$2.$3-$4";
+    public static final String REGEX_REMOVE_MASCARA     = "[^0-9]";
+    public static final String PLACEMENT_REMOVE_MASCARA = "";
+
+    private Cpf(){}
     
     public static String aplicaMascara(String cpf)
     {
         while(cpf.length() < 11)
             cpf = "0" + cpf;
         
-        return cpf.replaceAll(regexAplicaMascara, placementAplicaMascara);
+        return cpf.replaceAll(REGEX_APLICA_MASCARA, PLACEMENT_APLICA_MASCARA);
     }
     
     public static String removeMascara(String cpf)
     {
-        return cpf.replaceAll(regexRemoveMascara, placementRemoveMascara);
+        return cpf.replaceAll(REGEX_REMOVE_MASCARA, PLACEMENT_REMOVE_MASCARA);
     }
     public static boolean isCpf(String cpf)
     {

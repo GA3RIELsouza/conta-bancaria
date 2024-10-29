@@ -2,7 +2,7 @@ package utilities;
 
 import java.util.InputMismatchException;
 
-public final class Cpf
+public abstract class Cpf
 {
     public static final String regexAplicaMascara     = "(\\d{3})(\\d{3})(\\d{3})(\\d{2})";
     public static final String placementAplicaMascara = "$1.$2.$3-$4";

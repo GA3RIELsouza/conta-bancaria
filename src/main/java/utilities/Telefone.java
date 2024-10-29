@@ -1,6 +1,6 @@
 package utilities;
 
-public class Telefone
+public abstract class Telefone
 {
     public static final String regexAplicaMascaraCom9 = "(\\d{2})(\\d{5})(\\d{4})";
     public static final String regexAplicaMascaraSem9 = "(\\d{2})(\\d{4})(\\d{4})";

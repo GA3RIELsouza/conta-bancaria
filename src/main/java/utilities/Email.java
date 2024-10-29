@@ -3,7 +3,7 @@ package utilities;
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
-public class Email
+public abstract class Email
 {
 	public static final String regexEmail = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
 	 

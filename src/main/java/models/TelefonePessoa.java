@@ -16,7 +16,7 @@ public class TelefonePessoa
 
     public void setNumero(String numero) throws Exception
     {
-        if(!Telefone.isTelefone(numero))
+        if (!Telefone.isTelefone(numero))
             throw new Exception(numero + " não é um número válido");
 
         this.numero = Long.parseLong(Telefone.removeMascara(numero));

@@ -16,7 +16,7 @@ public abstract class Evento
     
     public final void desativar() throws Exception
     {
-        if(!isAtivo())
+        if (!isAtivo())
             throw new Exception("O evento já está inativo");
 
         setAtivo(false);

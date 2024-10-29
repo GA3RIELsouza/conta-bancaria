@@ -24,7 +24,7 @@ public class PessoaFisica extends Pessoa
     }
     public void setCpf(String cpf) throws Exception
     {
-        if(!Cpf.isCpf(cpf))
+        if (!Cpf.isCpf(cpf))
             throw new Exception(cpf + " não é um CPF válido");
 
         this.cpf = Long.parseLong(Cpf.removeMascara(cpf));

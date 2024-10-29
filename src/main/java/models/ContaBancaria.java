@@ -35,10 +35,10 @@ public abstract class ContaBancaria
     
     public void sacar(double valor) throws Exception
     {
-        if(!isAtiva())
+        if (!isAtiva())
             throw new Exception("Não é possível movimentar contas inativas");
 
-        if(saldo < valor)
+        if (saldo < valor)
             throw new Exception("Saldo insuficiente");
 
         movimentacao.add(new EventoConta(movimentacao.size() + 1, "Saque", TipoOper.diminuiSaldo, LocalDateTime.now(), getSaldo(), valor));
@@ -47,7 +47,7 @@ public abstract class ContaBancaria
     
     public void depositar(double valor) throws Exception
     {
-        if(!isAtiva())
+        if (!isAtiva())
             throw new Exception("Não é possível movimentar contas inativas");
         
         movimentacao.add(new EventoConta(movimentacao.size() + 1, "Depósito", TipoOper.aumentaSaldo, LocalDateTime.now(), getSaldo(), valor));
@@ -63,10 +63,10 @@ public abstract class ContaBancaria
                   "Conta:   " + getNumConta()   + "\n\n" +
                   "Movimentação: \n";
 
-        if(!iterator.hasNext())
+        if (!iterator.hasNext())
             extrato += "Nenhuma transação disponível";
 
-        while(iterator.hasNext())
+        while (iterator.hasNext())
         {
             EventoConta evento = iterator.next();
             
@@ -85,7 +85,7 @@ public abstract class ContaBancaria
 
     public void setCpfCliente(String cpfCliente) throws Exception
     {
-        if(!Cpf.isCpf(cpfCliente))
+        if (!Cpf.isCpf(cpfCliente))
             throw new Exception(cpfCliente + "não é um CPF válido");
         
         this.cpfCliente = Long.parseLong(Cpf.removeMascara(cpfCliente));

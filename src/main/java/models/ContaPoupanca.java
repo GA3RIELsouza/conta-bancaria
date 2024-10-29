@@ -18,10 +18,10 @@ public final class ContaPoupanca extends ContaBancaria
     {
         double vlrRendimento;
         
-        if(!isAtiva())
+        if (!isAtiva())
             throw new Exception("Não é possível movimentar contas inativas");
 
-        if(taxaRendimento <= 0)
+        if (taxaRendimento <= 0)
             throw new Exception(taxaRendimento + " não é uma taxa válida");
 
         vlrRendimento = getSaldo() * ( taxaRendimento / 100 );
@@ -35,7 +35,7 @@ public final class ContaPoupanca extends ContaBancaria
 
     public void setDiaRendimento(int diaRendimento) throws Exception
     {
-        if(diaRendimento < 1 || diaRendimento > 31)
+        if (diaRendimento < 1 || diaRendimento > 31)
             throw new Exception(diaRendimento + " não é um dia válido");
 
         this.diaRendimento = diaRendimento;

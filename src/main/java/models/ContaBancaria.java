@@ -26,7 +26,7 @@ public abstract class ContaBancaria
     public void sacar(double valor) throws Exception
     {
         if (saldo < valor)
-            throw new Exception("Saldo insuficiente");
+            throw new RuntimeException("Saldo insuficiente");
 
         saldo -= valor;
     }

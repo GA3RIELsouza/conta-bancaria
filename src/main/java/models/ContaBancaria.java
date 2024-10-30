@@ -1,104 +1,59 @@
 package models;
 
-import enums.TipoOper;
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.ListIterator;
-import java.util.ArrayList;
-import utilities.Cpf;
+import java.util.Date;
 
 public abstract class ContaBancaria
 {
-    private long    cpfCliente;
-    private int     numBanco;
+    private int     id;
+    private int     idBanco;
     private int     numAgencia;
     private int     numConta;
     private double  saldo;
-    private final   List<EventoConta> movimentacao;
-    private boolean ativa;
+    private Date    dataAbertura;
+    private int     idTitular;
     
-    public ContaBancaria()
+    public ContaBancaria(int id, int idBanco, int numAgencia, int numConta, double saldo, Date dataAbertura, int idTitular)
     {
-        movimentacao = new ArrayList<>();
-        setAtiva(true);
-    }
-    
-    public ContaBancaria(String cpf, int numBanco, int numAgencia, int numConta) throws Exception
-    {
-        setCpfCliente(cpf);
-        setNumBanco(numBanco);
+        setId(id);
+        setIdBanco(idBanco);
         setNumAgencia(numAgencia);
         setNumConta(numConta);
-        movimentacao = new ArrayList<>();
-        setAtiva(true);
+        this.saldo = 0;
+        setDataAbertura(dataAbertura);
+        setIdTitular(idTitular);
     }
     
     public void sacar(double valor) throws Exception
     {
-        if (!isAtiva())
-            throw new Exception("Não é possível movimentar contas inativas");
-
         if (saldo < valor)
             throw new Exception("Saldo insuficiente");
 
-        movimentacao.add(new EventoConta(movimentacao.size() + 1, "Saque", TipoOper.diminuiSaldo, LocalDateTime.now(), getSaldo(), valor));
         saldo -= valor;
     }
     
     public void depositar(double valor) throws Exception
     {
-        if (!isAtiva())
-            throw new Exception("Não é possível movimentar contas inativas");
-        
-        movimentacao.add(new EventoConta(movimentacao.size() + 1, "Depósito", TipoOper.aumentaSaldo, LocalDateTime.now(), getSaldo(), valor));
         saldo += valor;
     }
-    
-    public String imprimeExtrato()
+
+    public int getId()
     {
-        ListIterator<EventoConta> iterator = movimentacao.listIterator();
-        String extrato;
-
-        extrato = "Agencia: " + getNumAgencia() + "\n"   +
-                  "Conta:   " + getNumConta()   + "\n\n" +
-                  "Movimentação: \n";
-
-        if (!iterator.hasNext())
-            extrato += "Nenhuma transação disponível";
-
-        while (iterator.hasNext())
-        {
-            EventoConta evento = iterator.next();
-            
-            extrato += evento.toString();
-            if(iterator.hasNext())
-                extrato += "\n---------------------------------\n";
-        }
-        
-        return extrato;
+        return id;
     }
 
-    public String getCpfCliente()
+    public void setId(int id)
     {
-        return Cpf.aplicaMascara(Long.toString(cpfCliente));
+        this.id = id;
     }
 
-    public void setCpfCliente(String cpfCliente) throws Exception
+    public int getIdBanco()
     {
-        if (!Cpf.isCpf(cpfCliente))
-            throw new Exception(cpfCliente + "não é um CPF válido");
-        
-        this.cpfCliente = Long.parseLong(Cpf.removeMascara(cpfCliente));
+        return idBanco;
     }
 
-    public int getNumBanco()
+    public void setIdBanco(int idBanco)
     {
-        return numBanco;
-    }
-
-    public void setNumBanco(int numBanco)
-    {
-        this.numBanco = numBanco;
+        this.idBanco = idBanco;
     }
 
     public int getNumAgencia()
@@ -126,13 +81,23 @@ public abstract class ContaBancaria
         return saldo;
     }
 
-    public boolean isAtiva()
+    public Date getDataAbertura()
     {
-        return ativa;
+        return dataAbertura;
     }
 
-    public void setAtiva(boolean ativa)
+    public void setDataAbertura(Date dataAbertura)
     {
-        this.ativa = ativa;
+        this.dataAbertura = dataAbertura;
+    }
+
+    public int getIdTitular()
+    {
+        return idTitular;
+    }
+
+    public void setIdTitular(int idTitular)
+    {
+        this.idTitular = idTitular;
     }
 }

@@ -1,18 +1,18 @@
 package models;
 
-public class PessoaJuridica extends Pessoa
+public final class PessoaJuridica extends Pessoa
 {
 	private long   cnpj;
 	private String razaoSocial;
 	private String nomeFantasia;
-	private long   inscrNacional;
+	private long   inscrEstadual;
 	
-	PessoaJuridica(long cnpj, String razaoSocial, String nomeFantasia, long inscricaoEstadual)
+	PessoaJuridica(long cnpj, String razaoSocial, String nomeFantasia, long inscrEstadual)
 	{
 		setCnpj(cnpj);
 		setRazaoSocial(razaoSocial);
 		setNomeFantasia(nomeFantasia);
-		setInscrNacional(inscricaoEstadual);
+		setInscrEstadual(inscrEstadual);
 	}
 	
 	public long getCnpj()
@@ -39,12 +39,12 @@ public class PessoaJuridica extends Pessoa
 	{
 		this.nomeFantasia = nomeFantasia;
 	}
-	public long getInscrNacional()
+	public long getInscrEstadual()
 	{
-		return inscrNacional;
+		return inscrEstadual;
 	}
-	public void setInscrNacional(long inscrNacional)
+	public void setInscrEstadual(long inscrEstadual)
 	{
-		this.inscrNacional = inscrNacional;
+		this.inscrEstadual = inscrEstadual;
 	}
 }

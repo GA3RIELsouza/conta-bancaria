@@ -1,43 +1,43 @@
 package models;
 
+import java.util.Date;
+
 public final class ContaPoupanca extends ContaBancaria
 {
-    private int diaRendimento;
+    private Date   diaAniversario;
+    private int    indiceRemuneracao;
+    private double percRedimentoReal;
     
-    public ContaPoupanca()
+    public ContaPoupanca(int id, int codigoBanco, int numAgencia, int numConta, double saldo, Date dataAbertura, int idTitular, Date diaAniversario, int indiceRemuneracao, double percRedimentoReal)
     {
-        super();
-    }
-    
-    public ContaPoupanca(String cpf, int numBanco, int numAgencia, int numConta) throws Exception
-    {
-        super(cpf, numBanco, numAgencia, numConta);
-    }
-    
-    public void calcularRendimentoMensal(double taxaRendimento) throws Exception
-    {
-        double vlrRendimento;
-        
-        if (!isAtiva())
-            throw new Exception("Não é possível movimentar contas inativas");
-
-        if (taxaRendimento <= 0)
-            throw new Exception(taxaRendimento + " não é uma taxa válida");
-
-        vlrRendimento = getSaldo() * ( taxaRendimento / 100 );
-        depositar(vlrRendimento);
+        super(id, codigoBanco, numAgencia, numConta, saldo, dataAbertura, idTitular);
+        setDiaAniversario(diaAniversario);
+        setIndiceRemuneracao(indiceRemuneracao);
+        setPercRedimentoReal(percRedimentoReal);
     }
 
-    public int getDiaRendimento()
+    public Date getDiaAniversario()
     {
-        return diaRendimento;
+        return diaAniversario;
     }
-
-    public void setDiaRendimento(int diaRendimento) throws Exception
+    public void setDiaAniversario(Date diaAniversario)
     {
-        if (diaRendimento < 1 || diaRendimento > 31)
-            throw new Exception(diaRendimento + " não é um dia válido");
-
-        this.diaRendimento = diaRendimento;
+        this.diaAniversario = diaAniversario;
+    }
+    public int getIndiceRemuneracao()
+    {
+        return indiceRemuneracao;
+    }
+    public void setIndiceRemuneracao(int indiceRemuneracao)
+    {
+        this.indiceRemuneracao = indiceRemuneracao;
+    }
+    public double getPercRedimentoReal()
+    {
+        return percRedimentoReal;
+    }
+    public void setPercRedimentoReal(double percRedimentoReal)
+    {
+        this.percRedimentoReal = percRedimentoReal;
     }
 }

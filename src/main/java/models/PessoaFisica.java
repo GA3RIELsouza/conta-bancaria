@@ -3,7 +3,7 @@ package models;
 import utilities.Cpf;
 import java.util.Date;
 
-public class PessoaFisica extends Pessoa
+public final class PessoaFisica extends Pessoa
 {
 	private long   cpf;
 	private String nome;

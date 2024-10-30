@@ -4,7 +4,7 @@ import interfaces.IPessoaDAO;
 import java.util.List;
 import java.util.ArrayList;
 
-public class Pessoa implements IPessoaDAO
+public abstract class Pessoa implements IPessoaDAO
 {
     private long   id;
     private long   cep;
@@ -47,7 +47,7 @@ public class Pessoa implements IPessoaDAO
     }
     public Pessoa retornarPorId(long id)
     {
-        return new Pessoa();
+        return null;
     }
     public List<Pessoa> retornarTodos()
     {

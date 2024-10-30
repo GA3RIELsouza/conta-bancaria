@@ -1,6 +1,6 @@
 package enums;
 
-public enum TipoOper
+public enum TipoMov
 {
     aumentaSaldo,
     diminuiSaldo,

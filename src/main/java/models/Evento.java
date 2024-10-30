@@ -1,64 +1,52 @@
 package models;
 
-import enums.TipoOper;
+import enums.TipoMov;
 
-public abstract class Evento
+public final class Evento
 {
-    private int      id;
-    private String   descricao;
-    private TipoOper tipo;
-    private boolean  ativo;
-    
-    public Evento()
-    {
-        setAtivo(true);
-    }
-    
-    public final void desativar() throws Exception
-    {
-        if (!isAtivo())
-            throw new Exception("O evento já está inativo");
+    private int     id;
+    private String  descricao;
+    private TipoMov tipoMovimentacao;
+    private String  situacao;
 
-        setAtivo(false);
+    public Evento(int id, String descricao, TipoMov tipoMovimentacao, String situacao)
+    {
+        setId(id);
+        setDescricao(descricao);
+        setTipoMovimentacao(tipoMovimentacao);
+        setSituacao(situacao);
     }
 
-    public final int getId()
+    public int getId()
     {
         return id;
     }
-
-    public final void setId(int id)
+    public void setId(int id)
     {
         this.id = id;
     }
-
-    public final String getDescricao()
+    public String getDescricao()
     {
         return descricao;
     }
-
-    public final void setDescricao(String descricao)
+    public void setDescricao(String descricao)
     {
         this.descricao = descricao;
     }
-
-    public final TipoOper getTipo()
+    public TipoMov getTipoMovimentacao()
     {
-        return tipo;
+        return tipoMovimentacao;
     }
-
-    public final void setTipo(TipoOper tipo)
+    public void setTipoMovimentacao(TipoMov tipoMovimentacao)
     {
-        this.tipo = tipo;
+        this.tipoMovimentacao = tipoMovimentacao;
     }
-
-    public final boolean isAtivo()
+    public String getSituacao()
     {
-        return ativo;
+        return situacao;
     }
-
-    public final void setAtivo(boolean ativo)
+    public void setSituacao(String situacao)
     {
-        this.ativo = ativo;
+        this.situacao = situacao;
     }
 }

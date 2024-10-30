@@ -5,17 +5,17 @@ import java.util.Date;
 public abstract class ContaBancaria
 {
     private int     id;
-    private int     idBanco;
+    private int     codigoBanco;
     private int     numAgencia;
     private int     numConta;
     private double  saldo;
     private Date    dataAbertura;
     private int     idTitular;
     
-    public ContaBancaria(int id, int idBanco, int numAgencia, int numConta, double saldo, Date dataAbertura, int idTitular)
+    public ContaBancaria(int id, int codigoBanco, int numAgencia, int numConta, double saldo, Date dataAbertura, int idTitular)
     {
         setId(id);
-        setIdBanco(idBanco);
+        setCodigoBanco(codigoBanco);
         setNumAgencia(numAgencia);
         setNumConta(numConta);
         this.saldo = 0;
@@ -46,14 +46,14 @@ public abstract class ContaBancaria
         this.id = id;
     }
 
-    public int getIdBanco()
+    public int getCodigoBanco()
     {
-        return idBanco;
+        return codigoBanco;
     }
 
-    public void setIdBanco(int idBanco)
+    public void setCodigoBanco(int idBanco)
     {
-        this.idBanco = idBanco;
+        this.codigoBanco = idBanco;
     }
 
     public int getNumAgencia()

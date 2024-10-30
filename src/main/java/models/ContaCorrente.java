@@ -1,14 +1,33 @@
 package models;
 
-public final class ContaCorrente extends ContaBancaria
+import java.util.Date;
+
+public class ContaCorrente extends ContaBancaria
 {
-    public ContaCorrente()
+    private double valorCestaServicos;
+    private double limitePixNoturno;
+
+    public ContaCorrente(int id, int codigoBanco, int numAgencia, int numConta, double saldo, Date dataAbertura, int idTitular, double valorCestaServicos, double limitePixNoturno)
     {
-        super();
+        super(id, codigoBanco, numAgencia, numConta, saldo, dataAbertura, idTitular);
+        setValorCestaServicos(valorCestaServicos);
+        setLimitePixNoturno(limitePixNoturno);
     }
 
-    public ContaCorrente(String cpf, int numBanco, int numAgencia, int numConta) throws Exception
+    public double getValorCestaServicos()
     {
-        super(cpf, numBanco, numAgencia, numConta);
+        return valorCestaServicos;
+    }
+    public void setValorCestaServicos(double valorCestaServicos)
+    {
+        this.valorCestaServicos = valorCestaServicos;
+    }
+    public double getLimitePixNoturno()
+    {
+        return limitePixNoturno;
+    }
+    public void setLimitePixNoturno(double limitePixNoturno)
+    {
+        this.limitePixNoturno = limitePixNoturno;
     }
 }

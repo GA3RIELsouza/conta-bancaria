@@ -2,12 +2,12 @@ package models;
 
 public final class IndiceRemuneracao
 {
-    private int    codigo;
+    private long   codigo;
     private String descricao;
     private int    periodicidade;
-    private String situacao;
+    private int    situacao;
 
-    public IndiceRemuneracao(int codigo, String descricao, int periodicidade, String situacao)
+    public IndiceRemuneracao(long codigo, String descricao, int periodicidade, int situacao)
     {
         setCodigo(codigo);
         setDescricao(descricao);
@@ -15,11 +15,11 @@ public final class IndiceRemuneracao
         setSituacao(situacao);
     }
 
-    public int getCodigo()
+    public long getCodigo()
     {
         return codigo;
     }
-    public void setCodigo(int codigo)
+    public void setCodigo(long codigo)
     {
         this.codigo = codigo;
     }
@@ -39,11 +39,11 @@ public final class IndiceRemuneracao
     {
         this.periodicidade = periodicidade;
     }
-    public String getSituacao()
+    public int getSituacao()
     {
         return situacao;
     }
-    public void setSituacao(String situacao)
+    public void setSituacao(int situacao)
     {
         this.situacao = situacao;
     }

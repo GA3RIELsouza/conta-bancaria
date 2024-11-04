@@ -4,22 +4,22 @@ import java.util.Date;
 
 public final class Cotacao
 {
-    private int    codigo;
+    private long   codigo;
     private Date   data;
     private double valor;
 
-    public Cotacao(int codigo, Date data, double valor)
+    public Cotacao(long codigo, Date data, double valor)
     {
         setCodigo(codigo);
         setData(data);
         setValor(valor);
     }
 
-    public int getCodigo()
+    public long getCodigo()
     {
         return codigo;
     }
-    public void setCodigo(int codigo)
+    public void setCodigo(long codigo)
     {
         this.codigo = codigo;
     }

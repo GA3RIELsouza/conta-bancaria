@@ -1,15 +1,16 @@
 package models;
 
+import java.util.List;
 import enums.TipoMov;
 
 public final class Evento
 {
-    private int     id;
+    private long    id;
     private String  descricao;
     private TipoMov tipoMovimentacao;
-    private String  situacao;
+    private int     situacao;
 
-    public Evento(int id, String descricao, TipoMov tipoMovimentacao, String situacao)
+    public Evento(long id, String descricao, TipoMov tipoMovimentacao, int situacao)
     {
         setId(id);
         setDescricao(descricao);
@@ -17,11 +18,23 @@ public final class Evento
         setSituacao(situacao);
     }
 
-    public int getId()
+    public Evento ler()
+    {
+        return null;
+    }
+
+    public void gravar(){}
+
+    public List<Evento> listagem()
+    {
+        return null;
+    }
+
+    public long getId()
     {
         return id;
     }
-    public void setId(int id)
+    public void setId(long id)
     {
         this.id = id;
     }
@@ -41,11 +54,11 @@ public final class Evento
     {
         this.tipoMovimentacao = tipoMovimentacao;
     }
-    public String getSituacao()
+    public int getSituacao()
     {
         return situacao;
     }
-    public void setSituacao(String situacao)
+    public void setSituacao(int situacao)
     {
         this.situacao = situacao;
     }

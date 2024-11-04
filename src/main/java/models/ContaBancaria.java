@@ -4,15 +4,15 @@ import java.util.Date;
 
 public abstract class ContaBancaria
 {
-    private int     id;
-    private int     codigoBanco;
+    private long    id;
+    private long    codigoBanco;
     private int     numAgencia;
-    private int     numConta;
+    private long    numConta;
     private double  saldo;
     private Date    dataAbertura;
-    private int     idTitular;
+    private long    idTitular;
     
-    public ContaBancaria(int id, int codigoBanco, int numAgencia, int numConta, double saldo, Date dataAbertura, int idTitular)
+    public ContaBancaria(long id, long codigoBanco, int numAgencia, long numConta, double saldo, Date dataAbertura, long idTitular)
     {
         setId(id);
         setCodigoBanco(codigoBanco);
@@ -36,22 +36,22 @@ public abstract class ContaBancaria
         saldo += valor;
     }
 
-    public int getId()
+    public long getId()
     {
         return id;
     }
 
-    public void setId(int id)
+    public void setId(long id)
     {
         this.id = id;
     }
 
-    public int getCodigoBanco()
+    public long getCodigoBanco()
     {
         return codigoBanco;
     }
 
-    public void setCodigoBanco(int idBanco)
+    public void setCodigoBanco(long idBanco)
     {
         this.codigoBanco = idBanco;
     }
@@ -66,12 +66,12 @@ public abstract class ContaBancaria
         this.numAgencia = numAgencia;
     }
 
-    public int getNumConta()
+    public long getNumConta()
     {
         return numConta;
     }
 
-    public void setNumConta(int numConta)
+    public void setNumConta(long numConta)
     {
         this.numConta = numConta;
     }
@@ -91,12 +91,12 @@ public abstract class ContaBancaria
         this.dataAbertura = dataAbertura;
     }
 
-    public int getIdTitular()
+    public long getIdTitular()
     {
         return idTitular;
     }
 
-    public void setIdTitular(int idTitular)
+    public void setIdTitular(long idTitular)
     {
         this.idTitular = idTitular;
     }

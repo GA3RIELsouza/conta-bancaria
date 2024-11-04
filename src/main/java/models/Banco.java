@@ -2,12 +2,12 @@ package models;
 
 public class Banco
 {
-    private int    codigo;
+    private long   codigo;
     private String nome;
     private String mascaraAgencia;
     private String mascaraConta;
 
-    public Banco(int codigo, String nome, String mascaraAgencia, String mascaraConta)
+    public Banco(long codigo, String nome, String mascaraAgencia, String mascaraConta)
     {
         setCodigo(codigo);
         setNome(nome);
@@ -15,11 +15,11 @@ public class Banco
         setMascaraConta(mascaraConta);
     }
 
-    public int getCodigo()
+    public long getCodigo()
     {
         return codigo;
     }
-    public void setCodigo(int codigo)
+    public void setCodigo(long codigo)
     {
         this.codigo = codigo;
     }

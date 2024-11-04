@@ -5,9 +5,9 @@ public final class PessoaJuridica extends Pessoa
 	private long   cnpj;
 	private String razaoSocial;
 	private String nomeFantasia;
-	private long   inscrEstadual;
+	private String inscrEstadual;
 	
-	PessoaJuridica(long cnpj, String razaoSocial, String nomeFantasia, long inscrEstadual)
+	PessoaJuridica(long cnpj, String razaoSocial, String nomeFantasia, String inscrEstadual)
 	{
 		setCnpj(cnpj);
 		setRazaoSocial(razaoSocial);
@@ -39,11 +39,11 @@ public final class PessoaJuridica extends Pessoa
 	{
 		this.nomeFantasia = nomeFantasia;
 	}
-	public long getInscrEstadual()
+	public String getInscrEstadual()
 	{
 		return inscrEstadual;
 	}
-	public void setInscrEstadual(long inscrEstadual)
+	public void setInscrEstadual(String inscrEstadual)
 	{
 		this.inscrEstadual = inscrEstadual;
 	}

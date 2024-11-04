@@ -4,14 +4,14 @@ import enums.Estado;
 
 public class Localidade
 {
-    private int    id;
+    private long   id;
     private long   cep;
     private Estado estado;
     private String cidade;
     private String bairro;
     private String logradouro;
 
-    public Localidade(int id, long cep, Estado estado, String cidade, String bairro, String logradouro)
+    public Localidade(long id, long cep, Estado estado, String cidade, String bairro, String logradouro)
     {
         setId(id);
         setCep(cep);
@@ -21,11 +21,20 @@ public class Localidade
         setLogradouro(logradouro);
     }
 
-    public int getId()
+    public Localidade ler()
+    {
+        return null;
+    }
+
+    public void gravar(){}
+
+    public void buscar(){}
+
+    public long getId()
     {
         return id;
     }
-    public void setId(int id)
+    public void setId(long id)
     {
         this.id = id;
     }

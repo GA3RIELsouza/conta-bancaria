@@ -8,26 +8,46 @@ public abstract class Pessoa implements IPessoaDAO
 {
     private long   id;
     private long   cep;
-    private long   numEndereco;
+    private int    numEndereco;
     private String complEndereco;
     private int    situacao;
     
     public Pessoa() {}
     
-    public Pessoa(long cep, long numEnd, String complementoEnd, int situacao) throws Exception
+    public Pessoa(long id, long cep, int numEndereco, String complementoEnd, int situacao) throws Exception
     {
+        setId(id);
     	setCep(cep);
-    	setNumEndereco(numEnd);
+    	setNumEndereco(numEndereco);
     	setComplEndereco(complementoEnd);
         setSituacao(situacao);
     }
     
-    public Pessoa(long cep, long numEnd, int situacao) throws Exception
+    public Pessoa(long id, long cep, int numEndereco, int situacao) throws Exception
     {
+        setId(id);
     	setCep(cep);
-    	setNumEndereco(numEnd);
+    	setNumEndereco(numEndereco);
         setSituacao(situacao);
     }
+
+    public Pessoa ler()
+    {
+        return null;
+    }
+
+    public void gravar(){}
+
+    public void desabilitar(){}
+
+    public List<Pessoa> listagem()
+    {
+        return null;
+    }
+
+    public void adicionarFone(){}
+
+    public void removerFone(){}
 
     public boolean inserir(Pessoa p)
     {
@@ -69,11 +89,11 @@ public abstract class Pessoa implements IPessoaDAO
 	{
 		this.cep = cep;
 	}
-	public long getNumEndereco()
+	public int getNumEndereco()
 	{
 		return numEndereco;
 	}
-	public void setNumEndereco(long numEndereco)
+	public void setNumEndereco(int numEndereco)
 	{
 		this.numEndereco = numEndereco;
 	}

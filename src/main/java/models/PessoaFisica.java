@@ -1,7 +1,9 @@
 package models;
 
-import utilities.Cpf;
 import java.util.Date;
+import java.util.List;
+
+import utilities.Cpf;
 
 public final class PessoaFisica extends Pessoa
 {
@@ -17,6 +19,18 @@ public final class PessoaFisica extends Pessoa
 		setDtNasc(dataNasci);
 		setSexo(sexo);
 	}
+
+	public PessoaFisica ler()
+    {
+        return null;
+    }
+
+    public void gravar(){}
+
+    public List<Pessoa> listagem()
+    {
+        return null;
+    }
 	
 	public String getCpf()
     {

@@ -1,15 +1,16 @@
 package models;
 
 import java.util.Date;
+import java.util.List;
 
-public final class MovimentacaoConta
+public final class Movimentacao
 {
-    private ContaBancaria contaBancaria;
-    private Date          data;
-    private Evento        evento;
-    private double        valor;
+    private long   contaBancaria;
+    private Date   data;
+    private long   evento;
+    private double valor;
 
-    public MovimentacaoConta(ContaBancaria contaBancaria, Date data, Evento evento, double valor)
+    public Movimentacao(long contaBancaria, Date data, long evento, double valor)
     {
         setContaBancaria(contaBancaria);
         setData(data);
@@ -17,10 +18,17 @@ public final class MovimentacaoConta
         setValor(valor);
     }
 
-    public ContaBancaria getContaBancaria() {
+    public void gravar(){}
+
+    public List<Movimentacao> listagem()
+    {
+        return null;
+    }
+
+    public long getContaBancaria() {
         return contaBancaria;
     }
-    public void setContaBancaria(ContaBancaria contaBancaria)
+    public void setContaBancaria(long contaBancaria)
     {
         this.contaBancaria = contaBancaria;
     }
@@ -32,11 +40,11 @@ public final class MovimentacaoConta
     {
         this.data = data;
     }
-    public Evento getEvento()
+    public long getEvento()
     {
         return evento;
     }
-    public void setEvento(Evento evento)
+    public void setEvento(long evento)
     {
         this.evento = evento;
     }

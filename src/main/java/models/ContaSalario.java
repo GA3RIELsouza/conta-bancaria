@@ -4,13 +4,13 @@ import java.util.Date;
 
 public final class ContaSalario extends ContaBancaria
 {
-    private double  cnpjVinculado;
+    private long    cnpjVinculado;
     private double  limiteConsignado;
     private double  limiteAntecipadoMes;
     private boolean permiteAntecipar13o;
-    private int     idContaVinculada;
+    private long    idContaVinculada;
 
-    public ContaSalario(int id, int codigoBanco, int numAgencia, int numConta, double saldo, Date dataAbertura, int idTitular, double cnpjVinculado, double limiteConsignado, double limiteAntecipadoMes, boolean permiteAntecipar13o, int idContaVinculada)
+    public ContaSalario(long id, long codigoBanco, int numAgencia, long numConta, double saldo, Date dataAbertura, long idTitular, long cnpjVinculado, double limiteConsignado, double limiteAntecipadoMes, boolean permiteAntecipar13o, long idContaVinculada)
     {
         super(id, codigoBanco, numAgencia, numConta, saldo, dataAbertura, idTitular);
         setCnpjVinculado(cnpjVinculado);
@@ -20,11 +20,11 @@ public final class ContaSalario extends ContaBancaria
         setIdContaVinculada(idContaVinculada);
     }
 
-    public double getCnpjVinculado()
+    public long getCnpjVinculado()
     {
         return cnpjVinculado;
     }
-    public void setCnpjVinculado(double cnpjVinculado)
+    public void setCnpjVinculado(long cnpjVinculado)
     {
         this.cnpjVinculado = cnpjVinculado;
     }
@@ -52,11 +52,11 @@ public final class ContaSalario extends ContaBancaria
     {
         this.permiteAntecipar13o = permiteAntecipar13o;
     }
-    public int getIdContaVinculada()
+    public long getIdContaVinculada()
     {
         return idContaVinculada;
     }
-    public void setIdContaVinculada(int idContaVinculada)
+    public void setIdContaVinculada(long idContaVinculada)
     {
         this.idContaVinculada = idContaVinculada;
     }

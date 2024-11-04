@@ -1,20 +1,21 @@
 package models;
 
+import enums.Situacao;
 import interfaces.IPessoaDAO;
 import java.util.List;
 import java.util.ArrayList;
 
 public abstract class Pessoa implements IPessoaDAO
 {
-    private long   id;
-    private long   cep;
-    private int    numEndereco;
-    private String complEndereco;
-    private int    situacao;
+    private long     id;
+    private long     cep;
+    private int      numEndereco;
+    private String   complEndereco;
+    private Situacao situacao;
     
     public Pessoa() {}
     
-    public Pessoa(long id, long cep, int numEndereco, String complementoEnd, int situacao) throws Exception
+    public Pessoa(long id, long cep, int numEndereco, String complementoEnd, Situacao situacao) throws Exception
     {
         setId(id);
     	setCep(cep);
@@ -23,7 +24,7 @@ public abstract class Pessoa implements IPessoaDAO
         setSituacao(situacao);
     }
     
-    public Pessoa(long id, long cep, int numEndereco, int situacao) throws Exception
+    public Pessoa(long id, long cep, int numEndereco, Situacao situacao) throws Exception
     {
         setId(id);
     	setCep(cep);
@@ -105,11 +106,11 @@ public abstract class Pessoa implements IPessoaDAO
 	{
 		this.complEndereco = complEndereco;
 	}
-	public int getSituacao()
+	public Situacao getSituacao()
 	{
 		return situacao;
 	}
-	public void setSituacao(int situacao)
+	public void setSituacao(Situacao situacao)
 	{
 		this.situacao = situacao;
 	}

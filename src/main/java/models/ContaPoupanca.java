@@ -4,11 +4,11 @@ import java.util.Date;
 
 public final class ContaPoupanca extends ContaBancaria
 {
-    private Date   diaAniversario;
-    private int    indiceRemuneracao;
+    private int    diaAniversario;
+    private long   indiceRemuneracao;
     private double percRedimentoReal;
     
-    public ContaPoupanca(int id, int codigoBanco, int numAgencia, int numConta, double saldo, Date dataAbertura, int idTitular, Date diaAniversario, int indiceRemuneracao, double percRedimentoReal)
+    public ContaPoupanca(int id, int codigoBanco, int numAgencia, int numConta, double saldo, Date dataAbertura, long idTitular, int diaAniversario, long indiceRemuneracao, double percRedimentoReal)
     {
         super(id, codigoBanco, numAgencia, numConta, saldo, dataAbertura, idTitular);
         setDiaAniversario(diaAniversario);
@@ -16,19 +16,19 @@ public final class ContaPoupanca extends ContaBancaria
         setPercRedimentoReal(percRedimentoReal);
     }
 
-    public Date getDiaAniversario()
+    public int getDiaAniversario()
     {
         return diaAniversario;
     }
-    public void setDiaAniversario(Date diaAniversario)
+    public void setDiaAniversario(int diaAniversario)
     {
         this.diaAniversario = diaAniversario;
     }
-    public int getIndiceRemuneracao()
+    public long getIndiceRemuneracao()
     {
         return indiceRemuneracao;
     }
-    public void setIndiceRemuneracao(int indiceRemuneracao)
+    public void setIndiceRemuneracao(long indiceRemuneracao)
     {
         this.indiceRemuneracao = indiceRemuneracao;
     }

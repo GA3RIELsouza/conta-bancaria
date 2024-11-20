@@ -12,20 +12,25 @@ public final class Telefone {
     }
 
     public int getId() {
-        return id;
+        return this.id;
     }
+    
     public void setId(int id) {
         this.id = id;
     }
+
     public long getNumero() {
-        return numero;
+        return this.numero;
     }
+
     public void setNumero(long numero) {
         this.numero = numero;
     }
+
     public String getTipo() {
-        return tipo;
+        return this.tipo;
     }
+
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }

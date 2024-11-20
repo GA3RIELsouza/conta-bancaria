@@ -17,26 +17,33 @@ public final class PessoaJuridica extends Pessoa {
 	}
 	
 	public long getCnpj() {
-		return cnpj;
+		return this.cnpj;
 	}
+	
 	public void setCnpj(long cpnj) {
 		this.cnpj = cpnj;
 	}
+
 	public String getRazaoSocial() {
-		return razaoSocial;
+		return this.razaoSocial;
 	}
+
 	public void setRazaoSocial(String razaoSocial) {
 		this.razaoSocial = razaoSocial;
 	}
+
 	public String getNomeFantasia() {
-		return nomeFantasia;
+		return this.nomeFantasia;
 	}
+
 	public void setNomeFantasia(String nomeFantasia) {
 		this.nomeFantasia = nomeFantasia;
 	}
+
 	public String getInscrEstadual() {
-		return inscrEstadual;
+		return this.inscrEstadual;
 	}
+
 	public void setInscrEstadual(String inscrEstadual) {
 		this.inscrEstadual = inscrEstadual;
 	}

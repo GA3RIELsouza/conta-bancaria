@@ -19,47 +19,50 @@ public class Localidade {
         setLogradouro(logradouro);
     }
 
-    public Localidade ler() {
-        return null;
-    }
-
-    public void gravar(){}
-
-    public void buscar(){}
-
     public long getId() {
-        return id;
+        return this.id;
     }
+
     public void setId(long id) {
         this.id = id;
     }
+
     public long getCep() {
-        return cep;
+        return this.cep;
     }
+
     public void setCep(long cep) {
         this.cep = cep;
     }
+
     public Estado getEstado() {
-        return estado;
+        return this.estado;
     }
+
     public void setEstado(Estado estado) {
         this.estado = estado;
     }
+
     public String getCidade() {
-        return cidade;
+        return this.cidade;
     }
+
     public void setCidade(String cidade) {
         this.cidade = cidade;
     }
+
     public String getBairro() {
-        return bairro;
+        return this.bairro;
     }
+
     public void setBairro(String bairro) {
         this.bairro = bairro;
     }
+
     public String getLogradouro() {
-        return logradouro;
+        return this.logradouro;
     }
+
     public void setLogradouro(String logradouro) {
         this.logradouro = logradouro;
     }

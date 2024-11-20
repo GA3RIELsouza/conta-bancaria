@@ -14,26 +14,33 @@ public final class IndiceRemuneracao {
     }
 
     public long getCodigo() {
-        return codigo;
+        return this.codigo;
     }
+    
     public void setCodigo(long codigo) {
         this.codigo = codigo;
     }
+
     public String getDescricao() {
-        return descricao;
+        return this.descricao;
     }
+
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+
     public int getPeriodicidade() {
-        return periodicidade;
+        return this.periodicidade;
     }
+
     public void setPeriodicidade(int periodicidade) {
         this.periodicidade = periodicidade;
     }
+
     public int getSituacao() {
-        return situacao;
+        return this.situacao;
     }
+
     public void setSituacao(int situacao) {
         this.situacao = situacao;
     }

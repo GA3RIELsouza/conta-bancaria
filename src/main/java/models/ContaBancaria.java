@@ -11,7 +11,7 @@ public abstract class ContaBancaria {
     private Date    dataAbertura;
     private long    idTitular;
     
-    public ContaBancaria(long id, long codigoBanco, int numAgencia, long numConta, double saldo, Date dataAbertura, long idTitular) {
+    public ContaBancaria(long id, long codigoBanco, int numAgencia, long numConta, Date dataAbertura, long idTitular) {
         setId(id);
         setCodigoBanco(codigoBanco);
         setNumAgencia(numAgencia);
@@ -20,20 +20,9 @@ public abstract class ContaBancaria {
         setDataAbertura(dataAbertura);
         setIdTitular(idTitular);
     }
-    
-    public void sacar(double valor) throws Exception {
-        if (saldo < valor)
-            throw new RuntimeException("Saldo insuficiente");
-
-        saldo -= valor;
-    }
-    
-    public void depositar(double valor) throws Exception {
-        saldo += valor;
-    }
 
     public long getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(long id) {
@@ -41,7 +30,7 @@ public abstract class ContaBancaria {
     }
 
     public long getCodigoBanco() {
-        return codigoBanco;
+        return this.codigoBanco;
     }
 
     public void setCodigoBanco(long idBanco) {
@@ -49,7 +38,7 @@ public abstract class ContaBancaria {
     }
 
     public int getNumAgencia() {
-        return numAgencia;
+        return this.numAgencia;
     }
 
     public void setNumAgencia(int numAgencia) {
@@ -57,7 +46,7 @@ public abstract class ContaBancaria {
     }
 
     public long getNumConta() {
-        return numConta;
+        return this.numConta;
     }
 
     public void setNumConta(long numConta) {
@@ -65,11 +54,11 @@ public abstract class ContaBancaria {
     }
 
     public double getSaldo() {
-        return saldo;
+        return this.saldo;
     }
 
     public Date getDataAbertura() {
-        return dataAbertura;
+        return this.dataAbertura;
     }
 
     public void setDataAbertura(Date dataAbertura) {
@@ -77,7 +66,7 @@ public abstract class ContaBancaria {
     }
 
     public long getIdTitular() {
-        return idTitular;
+        return this.idTitular;
     }
 
     public void setIdTitular(long idTitular) {

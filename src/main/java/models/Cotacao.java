@@ -14,20 +14,25 @@ public final class Cotacao {
     }
 
     public long getCodigo() {
-        return codigo;
+        return this.codigo;
     }
+    
     public void setCodigo(long codigo) {
         this.codigo = codigo;
     }
+
     public Date getData() {
-        return data;
+        return this.data;
     }
+
     public void setData(Date data) {
         this.data = data;
     }
+
     public double getValor() {
-        return valor;
+        return this.valor;
     }
+
     public void setValor(double valor) {
         this.valor = valor;
     }

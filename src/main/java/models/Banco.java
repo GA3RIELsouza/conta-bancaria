@@ -14,26 +14,33 @@ public class Banco {
     }
 
     public long getCodigo() {
-        return codigo;
+        return this.codigo;
     }
+    
     public void setCodigo(long codigo) {
         this.codigo = codigo;
     }
+
     public String getNome() {
-        return nome;
+        return this.nome;
     }
+
     public void setNome(String nome) {
         this.nome = nome;
     }
+
     public String getMascaraAgencia() {
-        return mascaraAgencia;
+        return this.mascaraAgencia;
     }
+
     public void setMascaraAgencia(String mascaraAgencia) {
         this.mascaraAgencia = mascaraAgencia;
     }
+
     public String getMascaraConta() {
-        return mascaraConta;
+        return this.mascaraConta;
     }
+
     public void setMascaraConta(String mascaraConta) {
         this.mascaraConta = mascaraConta;
     }

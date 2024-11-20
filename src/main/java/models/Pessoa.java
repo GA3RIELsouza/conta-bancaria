@@ -1,11 +1,8 @@
 package models;
 
 import enums.Situacao;
-import interfaces.IPessoaDAO;
-import java.util.List;
-import java.util.ArrayList;
 
-public abstract class Pessoa implements IPessoaDAO {
+public abstract class Pessoa {
     private long     id;
     private long     cep;
     private int      numEndereco;
@@ -29,75 +26,42 @@ public abstract class Pessoa implements IPessoaDAO {
         setSituacao(situacao);
     }
 
-    public Pessoa ler() {
-        return null;
-    }
-
-    public void gravar(){}
-
-    public void desabilitar(){}
-
-    public List<Pessoa> listagem() {
-        return null;
-    }
-
-    public void adicionarFone(){}
-
-    public void removerFone(){}
-
-    public boolean inserir(Pessoa p) {
-        return true;
-    }
-    public boolean atualizar(Pessoa p) {
-        return true;
-    }
-    public boolean deletar(Pessoa p) {
-        return true;
-    }
-    public boolean deletar(long id) {
-        return true;
-    }
-    public Pessoa retornarPorId(long id) {
-        return null;
-    }
-    public List<Pessoa> retornarTodos() {
-        return new ArrayList<Pessoa>();
-    }
     public long getId() {
-        return id;
+        return this.id;
     }
+    
     public void setId(long id) {
         this.id = id;
     }
     public long getCep() {
-		return cep;
+		return this.cep;
 	}
-	public void setCep(long cep)
-	{
+
+	public void setCep(long cep) {
 		this.cep = cep;
 	}
-	public int getNumEndereco()
-	{
-		return numEndereco;
+
+	public int getNumEndereco() {
+		return this.numEndereco;
 	}
-	public void setNumEndereco(int numEndereco)
-	{
+
+	public void setNumEndereco(int numEndereco) {
 		this.numEndereco = numEndereco;
 	}
-	public String getComplEndereco()
-	{
-		return complEndereco;
+
+	public String getComplEndereco() {
+		return this.complEndereco;
 	}
-	public void setComplEndereco(String complEndereco)
-	{
+
+	public void setComplEndereco(String complEndereco) {
 		this.complEndereco = complEndereco;
 	}
-	public Situacao getSituacao()
-	{
-		return situacao;
+
+	public Situacao getSituacao() {
+		return this.situacao;
 	}
-	public void setSituacao(Situacao situacao)
-	{
+
+	public void setSituacao(Situacao situacao) {
 		this.situacao = situacao;
 	}
 }

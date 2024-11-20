@@ -9,8 +9,8 @@ public final class ContaSalario extends ContaBancaria {
     private boolean permiteAntecipar13o;
     private long    idContaVinculada;
 
-    public ContaSalario(long id, long codigoBanco, int numAgencia, long numConta, double saldo, Date dataAbertura, long idTitular, long cnpjVinculado, double limiteConsignado, double limiteAntecipadoMes, boolean permiteAntecipar13o, long idContaVinculada) {
-        super(id, codigoBanco, numAgencia, numConta, saldo, dataAbertura, idTitular);
+    public ContaSalario(long id, long codigoBanco, int numAgencia, long numConta, Date dataAbertura, long idTitular, long cnpjVinculado, double limiteConsignado, double limiteAntecipadoMes, boolean permiteAntecipar13o, long idContaVinculada) {
+        super(id, codigoBanco, numAgencia, numConta, dataAbertura, idTitular);
         setCnpjVinculado(cnpjVinculado);
         setLimiteConsignado(limiteConsignado);
         setLimiteAntecipadoMes(limiteAntecipadoMes);
@@ -19,35 +19,42 @@ public final class ContaSalario extends ContaBancaria {
     }
 
     public long getCnpjVinculado() {
-        return cnpjVinculado;
+        return this.cnpjVinculado;
     }
+
     public void setCnpjVinculado(long cnpjVinculado) {
         this.cnpjVinculado = cnpjVinculado;
     }
+    
     public double getLimiteConsignado() {
-        return limiteConsignado;
+        return this.limiteConsignado;
     }
+
     public void setLimiteConsignado(double limiteConsignado) {
         this.limiteConsignado = limiteConsignado;
     }
+    
     public double getLimiteAntecipadoMes() {
-        return limiteAntecipadoMes;
+        return this.limiteAntecipadoMes;
     }
+
     public void setLimiteAntecipadoMes(double limiteAntecipadoMes) {
         this.limiteAntecipadoMes = limiteAntecipadoMes;
     }
+
     public boolean isPermiteAntecipar13o() {
-        return permiteAntecipar13o;
+        return this.permiteAntecipar13o;
     }
+
     public void setPermiteAntecipar13o(boolean permiteAntecipar13o) {
         this.permiteAntecipar13o = permiteAntecipar13o;
     }
+
     public long getIdContaVinculada() {
-        return idContaVinculada;
+        return this.idContaVinculada;
     }
+
     public void setIdContaVinculada(long idContaVinculada) {
         this.idContaVinculada = idContaVinculada;
     }
-
-    
 }

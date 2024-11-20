@@ -1,8 +1,6 @@
 package models;
 
 import java.util.Date;
-import java.util.List;
-
 import enums.Situacao;
 import utilities.Cpf;
 
@@ -19,49 +17,42 @@ public final class PessoaFisica extends Pessoa {
 		setDtNasc(dataNasci);
 		setSexo(sexo);
 	}
-
-	public PessoaFisica ler() {
-        return null;
-    }
-
-    public void gravar(){}
-
-    public List<Pessoa> listagem() {
-        return null;
-    }
 	
 	public String getCpf() {
         return Cpf.aplicaMascara(Long.toString(cpf));
     }
+
     public void setCpf(String cpf) throws Exception {
         if (!Cpf.isCpf(cpf))
             throw new RuntimeException(cpf + " não é um CPF válido");
 
         this.cpf = Long.parseLong(Cpf.removeMascara(cpf));
     }
+	
     public String getNome() {
-		return nome;
+		return this.nome;
 	}
-	public void setNome(String nome)
-	{
+
+	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Date getDtNasc()
-	{
-		return dtNasc;
+	
+	public Date getDtNasc() {
+		return this.dtNasc;
 	}
-	public void setDtNasc(Date dtNasc)
-	{
+
+	public void setDtNasc(Date dtNasc) {
 		this.dtNasc = dtNasc;
 	}
-	public int getSexo()
-	{
-		return sexo;
+
+	public int getSexo() {
+		return this.sexo;
 	}
-	public void setSexo(int sexo)
-	{
+
+	public void setSexo(int sexo) {
 		this.sexo = sexo;
 	}
+
 	public void setCpf(long cpf) {
 		this.cpf = cpf;
 	}

@@ -9,6 +9,7 @@ import dao.*;
 import enums.Estado;
 import enums.Sexo;
 import enums.Situacao;
+import enums.TipoTel;
 
 public class App {
     public static void main(String[] args) throws Exception {
@@ -54,11 +55,11 @@ public class App {
         PessoaJuridicaDAO pessoaJuridicaDAO = new PessoaJuridicaDAO();
         long idPessoaJuridica;
 
-        idPessoaJuridica = pessoaJuridicaDAO.incluir(new PessoaJuridica(-1, idLocalidade, 1, "Casa fundos", Situacao.Ativo,
+        idPessoaJuridica = pessoaJuridicaDAO.incluir(new PessoaJuridica(-1, idLocalidade, 253, "Casa fundos", Situacao.Ativo,
             "99.136.369/0001-93", "Davi Brito", "Davi Brito Empresa", "INSCRIÇÃO1"), true);
         pessoaJuridicaDAO.consultarPorId(idPessoaJuridica);
         pessoaJuridicaDAO.consultarTodos();
-        pessoaJuridicaDAO.atualizar(new PessoaJuridica(idPessoaJuridica, idLocalidade, 1, "Casa fundos", Situacao.Ativo,
+        pessoaJuridicaDAO.atualizar(new PessoaJuridica(idPessoaJuridica, idLocalidade, 253, "Casa fundos", Situacao.Ativo,
             "47.818.201/0001-64", "Davyd Britts", "David Britts Empresa", "INSCRIÇÃO2"));
         pessoaJuridicaDAO.excluir(idPessoaJuridica);
         
@@ -68,5 +69,21 @@ public class App {
         pessoaDAO.consultarTodos();
 
         System.out.println("Classe PessoaDAO = OK!");
+
+        idPessoaFisica = pessoaFisicaDAO.incluir(new PessoaFisica(-1, idLocalidade, 253, "Casa fundos", Situacao.Ativo,
+            "132.428.729-24", "Gabriel Leandro de Souza", new java.sql.Date(System.currentTimeMillis()), Sexo.Masculino), true);
+        
+        // Testando métodos do DAO do telefone
+        TelefoneDAO telefoneDAO = new TelefoneDAO();
+        long idTelefone;
+
+        idTelefone = telefoneDAO.incluir(new Telefone(-1, idPessoaFisica, "(47) 99291-0530", TipoTel.Movel), true);
+        telefoneDAO.consultarPorId(idTelefone);
+        telefoneDAO.consultarTodos();
+        telefoneDAO.consultarTodosPorPessoa(idPessoaFisica);
+        telefoneDAO.atualizar(new Telefone(idPessoaFisica, idTelefone, "(31) 2570-6173", TipoTel.Fixo));
+        telefoneDAO.excluir(idTelefone);
+
+        System.out.println("Classe TelefoneDAO = OK!");
     }
 }

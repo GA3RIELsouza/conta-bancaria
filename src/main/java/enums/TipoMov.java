@@ -14,4 +14,11 @@ public enum TipoMov {
     public int getId() {
         return id;
     }
+
+    public static TipoMov fromId(int id) {
+        for (TipoMov tipoMov : TipoMov.values())
+            if (tipoMov.getId() == id)
+                return tipoMov;
+        throw new RuntimeException("Tipo de movimentação inválido: " + id);
+    }
 }

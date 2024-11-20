@@ -1,6 +1,6 @@
 package utilities;
 
-public final class Telefone {
+public final class NumeroTelefone {
     public static final String REGEX_APLICA_MASCARA_COM_9 = "(\\d{2})(\\d{5})(\\d{4})";
     public static final String REGEX_APLICA_MASCARA_SEM_9 = "(\\d{2})(\\d{4})(\\d{4})";
     public static final String PLACEMENT_APLICA_MASCARA   = "($1) $2-$3";
@@ -18,7 +18,7 @@ public final class Telefone {
         "99"
     };
 
-    private Telefone(){}
+    private NumeroTelefone(){}
     
     public static String aplicaMascara(String telefone) {
         return switch (telefone.length()) {

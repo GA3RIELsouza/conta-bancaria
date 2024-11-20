@@ -1,7 +1,6 @@
 package enums;
 
-public enum Estado
-{
+public enum Estado {
     AC("Acre"),
     AL("Alagoas"),
     AP("Amapá"),
@@ -32,13 +31,11 @@ public enum Estado
 
     private final String nome;
 
-    Estado(String nome)
-    {
+    Estado(String nome) {
         this.nome = nome;
     }
 
-    public String getNome()
-    {
+    public String getNome() {
         return nome;
     }
 }

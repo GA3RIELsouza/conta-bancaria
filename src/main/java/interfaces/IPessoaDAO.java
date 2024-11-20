@@ -3,8 +3,7 @@ package interfaces;
 import java.util.List;
 import models.Pessoa;
 
-public interface IPessoaDAO
-{
+public interface IPessoaDAO {
     boolean inserir(Pessoa p);
 
     boolean atualizar(Pessoa p);

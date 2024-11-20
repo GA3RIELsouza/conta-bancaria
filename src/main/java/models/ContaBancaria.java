@@ -2,8 +2,7 @@ package models;
 
 import java.util.Date;
 
-public abstract class ContaBancaria
-{
+public abstract class ContaBancaria {
     private long    id;
     private long    codigoBanco;
     private int     numAgencia;
@@ -12,8 +11,7 @@ public abstract class ContaBancaria
     private Date    dataAbertura;
     private long    idTitular;
     
-    public ContaBancaria(long id, long codigoBanco, int numAgencia, long numConta, double saldo, Date dataAbertura, long idTitular)
-    {
+    public ContaBancaria(long id, long codigoBanco, int numAgencia, long numConta, double saldo, Date dataAbertura, long idTitular) {
         setId(id);
         setCodigoBanco(codigoBanco);
         setNumAgencia(numAgencia);
@@ -23,81 +21,66 @@ public abstract class ContaBancaria
         setIdTitular(idTitular);
     }
     
-    public void sacar(double valor) throws Exception
-    {
+    public void sacar(double valor) throws Exception {
         if (saldo < valor)
             throw new RuntimeException("Saldo insuficiente");
 
         saldo -= valor;
     }
     
-    public void depositar(double valor) throws Exception
-    {
+    public void depositar(double valor) throws Exception {
         saldo += valor;
     }
 
-    public long getId()
-    {
+    public long getId() {
         return id;
     }
 
-    public void setId(long id)
-    {
+    public void setId(long id) {
         this.id = id;
     }
 
-    public long getCodigoBanco()
-    {
+    public long getCodigoBanco() {
         return codigoBanco;
     }
 
-    public void setCodigoBanco(long idBanco)
-    {
+    public void setCodigoBanco(long idBanco) {
         this.codigoBanco = idBanco;
     }
 
-    public int getNumAgencia()
-    {
+    public int getNumAgencia() {
         return numAgencia;
     }
 
-    public void setNumAgencia(int numAgencia)
-    {
+    public void setNumAgencia(int numAgencia) {
         this.numAgencia = numAgencia;
     }
 
-    public long getNumConta()
-    {
+    public long getNumConta() {
         return numConta;
     }
 
-    public void setNumConta(long numConta)
-    {
+    public void setNumConta(long numConta) {
         this.numConta = numConta;
     }
 
-    public double getSaldo()
-    {
+    public double getSaldo() {
         return saldo;
     }
 
-    public Date getDataAbertura()
-    {
+    public Date getDataAbertura() {
         return dataAbertura;
     }
 
-    public void setDataAbertura(Date dataAbertura)
-    {
+    public void setDataAbertura(Date dataAbertura) {
         this.dataAbertura = dataAbertura;
     }
 
-    public long getIdTitular()
-    {
+    public long getIdTitular() {
         return idTitular;
     }
 
-    public void setIdTitular(long idTitular)
-    {
+    public void setIdTitular(long idTitular) {
         this.idTitular = idTitular;
     }
 }

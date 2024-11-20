@@ -2,8 +2,7 @@ package models;
 
 import enums.Estado;
 
-public class Localidade
-{
+public class Localidade {
     private long   id;
     private long   cep;
     private Estado estado;
@@ -11,8 +10,7 @@ public class Localidade
     private String bairro;
     private String logradouro;
 
-    public Localidade(long id, long cep, Estado estado, String cidade, String bairro, String logradouro)
-    {
+    public Localidade(long id, long cep, Estado estado, String cidade, String bairro, String logradouro) {
         setId(id);
         setCep(cep);
         setEstado(estado);
@@ -21,8 +19,7 @@ public class Localidade
         setLogradouro(logradouro);
     }
 
-    public Localidade ler()
-    {
+    public Localidade ler() {
         return null;
     }
 
@@ -30,52 +27,40 @@ public class Localidade
 
     public void buscar(){}
 
-    public long getId()
-    {
+    public long getId() {
         return id;
     }
-    public void setId(long id)
-    {
+    public void setId(long id) {
         this.id = id;
     }
-    public long getCep()
-    {
+    public long getCep() {
         return cep;
     }
-    public void setCep(long cep)
-    {
+    public void setCep(long cep) {
         this.cep = cep;
     }
-    public Estado getEstado()
-    {
+    public Estado getEstado() {
         return estado;
     }
-    public void setEstado(Estado estado)
-    {
+    public void setEstado(Estado estado) {
         this.estado = estado;
     }
-    public String getCidade()
-    {
+    public String getCidade() {
         return cidade;
     }
-    public void setCidade(String cidade)
-    {
+    public void setCidade(String cidade) {
         this.cidade = cidade;
     }
-    public String getBairro()
-    {
+    public String getBairro() {
         return bairro;
     }
-    public void setBairro(String bairro)
-    {
+    public void setBairro(String bairro) {
         this.bairro = bairro;
     }
-    public String getLogradouro()
-    {
+    public String getLogradouro() {
         return logradouro;
     }
-    public void setLogradouro(String logradouro)
-    {
+    public void setLogradouro(String logradouro) {
         this.logradouro = logradouro;
     }
 }

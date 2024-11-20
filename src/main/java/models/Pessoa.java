@@ -5,8 +5,7 @@ import interfaces.IPessoaDAO;
 import java.util.List;
 import java.util.ArrayList;
 
-public abstract class Pessoa implements IPessoaDAO
-{
+public abstract class Pessoa implements IPessoaDAO {
     private long     id;
     private long     cep;
     private int      numEndereco;
@@ -15,8 +14,7 @@ public abstract class Pessoa implements IPessoaDAO
     
     public Pessoa() {}
     
-    public Pessoa(long id, long cep, int numEndereco, String complementoEnd, Situacao situacao) throws Exception
-    {
+    public Pessoa(long id, long cep, int numEndereco, String complementoEnd, Situacao situacao) throws Exception {
         setId(id);
     	setCep(cep);
     	setNumEndereco(numEndereco);
@@ -24,16 +22,14 @@ public abstract class Pessoa implements IPessoaDAO
         setSituacao(situacao);
     }
     
-    public Pessoa(long id, long cep, int numEndereco, Situacao situacao) throws Exception
-    {
+    public Pessoa(long id, long cep, int numEndereco, Situacao situacao) throws Exception {
         setId(id);
     	setCep(cep);
     	setNumEndereco(numEndereco);
         setSituacao(situacao);
     }
 
-    public Pessoa ler()
-    {
+    public Pessoa ler() {
         return null;
     }
 
@@ -41,8 +37,7 @@ public abstract class Pessoa implements IPessoaDAO
 
     public void desabilitar(){}
 
-    public List<Pessoa> listagem()
-    {
+    public List<Pessoa> listagem() {
         return null;
     }
 
@@ -50,40 +45,31 @@ public abstract class Pessoa implements IPessoaDAO
 
     public void removerFone(){}
 
-    public boolean inserir(Pessoa p)
-    {
+    public boolean inserir(Pessoa p) {
         return true;
     }
-    public boolean atualizar(Pessoa p)
-    {
+    public boolean atualizar(Pessoa p) {
         return true;
     }
-    public boolean deletar(Pessoa p)
-    {
+    public boolean deletar(Pessoa p) {
         return true;
     }
-    public boolean deletar(long id)
-    {
+    public boolean deletar(long id) {
         return true;
     }
-    public Pessoa retornarPorId(long id)
-    {
+    public Pessoa retornarPorId(long id) {
         return null;
     }
-    public List<Pessoa> retornarTodos()
-    {
+    public List<Pessoa> retornarTodos() {
         return new ArrayList<Pessoa>();
     }
-    public long getId()
-    {
+    public long getId() {
         return id;
     }
-    public void setId(long id)
-    {
+    public void setId(long id) {
         this.id = id;
     }
-    public long getCep()
-    {
+    public long getCep() {
 		return cep;
 	}
 	public void setCep(long cep)

@@ -2,8 +2,7 @@ package utilities;
 
 import java.util.InputMismatchException;
 
-public final class Cpf
-{
+public final class Cpf {
     public static final String REGEX_APLICA_MASCARA     = "(\\d{3})(\\d{3})(\\d{3})(\\d{2})";
     public static final String PLACEMENT_APLICA_MASCARA = "$1.$2.$3-$4";
     public static final String REGEX_REMOVE_MASCARA     = "[^0-9]";
@@ -11,20 +10,17 @@ public final class Cpf
 
     private Cpf(){}
     
-    public static String aplicaMascara(String cpf)
-    {
+    public static String aplicaMascara(String cpf) {
         while(cpf.length() < 11)
             cpf = "0" + cpf;
         
         return cpf.replaceAll(REGEX_APLICA_MASCARA, PLACEMENT_APLICA_MASCARA);
     }
     
-    public static String removeMascara(String cpf)
-    {
+    public static String removeMascara(String cpf) {
         return cpf.replaceAll(REGEX_REMOVE_MASCARA, PLACEMENT_REMOVE_MASCARA);
     }
-    public static boolean isCpf(String cpf)
-    {
+    public static boolean isCpf(String cpf) {
         cpf = removeMascara(cpf);
         
         if(cpf.equals("00000000000") || cpf.equals("11111111111") ||
@@ -38,45 +34,41 @@ public final class Cpf
         char dig10, dig11;
         int soma, resto, num, peso, i;
 
-        try
-        {
+        try {
             soma = 0;
             peso = 10;
-            for(i = 0; i < 9; i++)
-            {
+            for (i = 0; i < 9; i++) {
                 num = (int)(cpf.charAt(i) - 48);
                 soma = soma + (num * peso);
                 peso = peso - 1;
             }
 
             resto = 11 - (soma % 11);
-            if((resto == 10) || (resto == 11))
+            if ((resto == 10) || (resto == 11))
                 dig10 = '0';
             else
                 dig10 = (char)(resto + 48);
 
             soma = 0;
             peso = 11;
-            for(i = 0; i < 10; i++)
-            {
+            for (i = 0; i < 10; i++) {
                 num = (int)(cpf.charAt(i) - 48);
                 soma = soma + (num * peso);
                 peso = peso - 1;
             }
 
             resto = 11 - (soma % 11);
-            if((resto == 10) || (resto == 11))
+            if ((resto == 10) || (resto == 11))
                 dig11 = '0';
             else
                 dig11 = (char)(resto + 48);
 
-            if((dig10 == cpf.charAt(9)) && (dig11 == cpf.charAt(10)))
+            if ((dig10 == cpf.charAt(9)) && (dig11 == cpf.charAt(10)))
                  return true;
             else
                 return false;
         }
-        catch(InputMismatchException erro)
-        {
+        catch (InputMismatchException erro) {
             return false;
         }
     }

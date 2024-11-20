@@ -67,8 +67,7 @@ public final class Cpf {
                  return true;
             else
                 return false;
-        }
-        catch (InputMismatchException erro) {
+        } catch (InputMismatchException erro) {
             return false;
         }
     }

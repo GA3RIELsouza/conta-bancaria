@@ -40,8 +40,7 @@ public final class Telefone {
         
         try {
             ddd = telefone.charAt(0) + "" + telefone.charAt(1);
-        }
-        catch (Exception ex) {
+        } catch (Exception ex) {
             return false;
         }
         

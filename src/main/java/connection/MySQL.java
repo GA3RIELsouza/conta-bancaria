@@ -14,8 +14,7 @@ public final class MySQL {
 	public static Connection conectar() {
 		try {
 			return DriverManager.getConnection(ADDRESS, USER, PASSWORD);
-		}
-		catch (SQLException ex) {
+		} catch (SQLException ex) {
 			throw new RuntimeException("Problemas ao estabelecer a conexão:\n" + ex.getMessage());
 		}
 	}
@@ -24,8 +23,7 @@ public final class MySQL {
 		if (conexao != null) {
 			try {
 				conexao.close();
-			}
-			catch (SQLException ex) {
+			} catch (SQLException ex) {
 				throw new RuntimeException("Problemas ao encerrar a conexão:\n" + ex.getMessage());
 			}
 		}

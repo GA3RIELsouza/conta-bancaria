@@ -33,16 +33,6 @@ public class Localidade {
         setLogradouro(localidadeBuscaCep.getLogradouro());
     }
 
-    @Override
-    public String toString() {
-        return "ID         : " + this.getId()     + "\n" +
-               "CEP        : " + this.getCep()    + "\n" +
-               "Estado     : " + this.getCidade() + "\n" +
-               "Cidade     : " + this.getCidade() + "\n" +
-               "Bairro     : " + this.getBairro() + "\n" +
-               "Logradouro : " + this.getLogradouro();
-    }
-
     public long getId() {
         return this.id;
     }

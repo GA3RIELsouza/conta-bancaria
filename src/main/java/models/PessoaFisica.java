@@ -1,16 +1,19 @@
 package models;
 
-import java.util.Date;
 import enums.Situacao;
+import java.sql.Date;
+import enums.Sexo;
 import utilities.Cpf;
 
 public final class PessoaFisica extends Pessoa {
 	private long   cpf;
 	private String nome;
 	private Date   dtNasc;
-	private int    sexo;
+	private Sexo   sexo;
 
-	PessoaFisica(long id, long idLocalidade, int numEndereco, String complementoEnd, Situacao situacao, String cpf, String nome, Date dataNasci, int sexo) throws Exception {
+	public PessoaFisica(){}
+
+	public PessoaFisica(long id, long idLocalidade, int numEndereco, String complementoEnd, Situacao situacao, String cpf, String nome, Date dataNasci, Sexo sexo) throws Exception {
 		super(id, idLocalidade, numEndereco, complementoEnd, situacao);
 		setCpf(cpf);
 		setNome(nome);
@@ -22,7 +25,7 @@ public final class PessoaFisica extends Pessoa {
         return Cpf.aplicaMascara(Long.toString(cpf));
     }
 
-    public void setCpf(String cpf) throws Exception {
+    public void setCpf(String cpf) {
         if (!Cpf.isCpf(cpf))
             throw new RuntimeException(cpf + " não é um CPF válido");
 
@@ -45,11 +48,11 @@ public final class PessoaFisica extends Pessoa {
 		this.dtNasc = dtNasc;
 	}
 
-	public int getSexo() {
+	public Sexo getSexo() {
 		return this.sexo;
 	}
 
-	public void setSexo(int sexo) {
+	public void setSexo(Sexo sexo) {
 		this.sexo = sexo;
 	}
 

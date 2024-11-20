@@ -16,11 +16,11 @@ public final class LocalidadeDAO implements ILocalidadeDAO {
 		incluir(localidade, false);
 	}
 	
-	public long incluir(Localidade localidade, boolean retornaChave) {
+	public long incluir(Localidade localidade, boolean retornaId) {
 		if (localidade == null)
-			return (long) -1;
+			return -1;
 		
-		final String comando = """
+		final String comando =	"""
                                 INSERT INTO localidade (cep, estado, cidade, bairro, logradouro)
                                 VALUES (?, ?, ?, ?, ?)
                             	""";
@@ -31,7 +31,7 @@ public final class LocalidadeDAO implements ILocalidadeDAO {
 		try {
 			con = MySQL.conectar();
 			
-			if (retornaChave)
+			if (retornaId)
 				pstm = con.prepareStatement(comando, PreparedStatement.RETURN_GENERATED_KEYS);
 			else
 				pstm = con.prepareStatement(comando);
@@ -44,7 +44,7 @@ public final class LocalidadeDAO implements ILocalidadeDAO {
 			
 			pstm.execute();
 			
-			if (retornaChave) {
+			if (retornaId) {
 				ResultSet rs = pstm.getGeneratedKeys();
 				rs.next();
 				id = rs.getLong(1);
@@ -62,16 +62,15 @@ public final class LocalidadeDAO implements ILocalidadeDAO {
         }
 	}
 
-	public void atualizar(Localidade localidade)
-	{
+	public void atualizar(Localidade localidade) {
 		if (localidade == null)
 			return;
 		
-		final String comando = """
+		final String comando =	"""
                                 UPDATE localidade
 			                    SET cep = ?, estado = ?, cidade = ?, bairro = ?, logradouro = ?
 		                        WHERE id = ?
-                               """;
+                            	""";
 		Connection        con = null;
 		PreparedStatement pstm = null;
 		
@@ -97,7 +96,7 @@ public final class LocalidadeDAO implements ILocalidadeDAO {
 	}
 
 	public void excluir(long id) {
-		final String comando = """
+		final String comando =	"""
                                 DELETE FROM localidade
 		                        WHERE id = ?
                                 """;
@@ -121,11 +120,11 @@ public final class LocalidadeDAO implements ILocalidadeDAO {
 	}
 	
 	public Localidade consultarPorId(long id) {
-		final String comando = """
+		final String comando =	"""
                                 SELECT cep, estado, cidade, bairro, logradouro
 				                FROM localidade
                 			    WHERE id = ?
-                               """;
+                            	""";
 		Connection        con = null;
 		PreparedStatement pstm = null;
 		ResultSet         rs   = null;
@@ -165,7 +164,7 @@ public final class LocalidadeDAO implements ILocalidadeDAO {
 	}
 
 	public Localidade consultarPorCep(long cep) {
-		final String comando = """
+		final String comando =	"""
                                 SELECT id, estado, cidade, bairro, logradouro
 				                FROM localidade
                 			    WHERE cep = ?
@@ -209,7 +208,7 @@ public final class LocalidadeDAO implements ILocalidadeDAO {
 	}
 
 	public List<Localidade> consultarTodos() {
-		final String comando = """
+		final String comando =	"""
                                 SELECT id, cep, estado, cidade, bairro, logradouro
 	                            FROM localidade
                                 """;
@@ -249,7 +248,7 @@ public final class LocalidadeDAO implements ILocalidadeDAO {
 	}
 
 	public List<Localidade> consultarTodosPorUf(Estado uf) {
-		final String comando = """
+		final String comando =	"""
                                 SELECT id, cep, estado, cidade, bairro, logradouro
 	                            FROM localidade
 			                    WHERE estado = ?

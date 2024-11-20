@@ -1,6 +1,7 @@
 package models;
 
 import enums.Situacao;
+import utilities.Cnpj;
 
 public final class PessoaJuridica extends Pessoa {
 	private long   cnpj;
@@ -8,7 +9,9 @@ public final class PessoaJuridica extends Pessoa {
 	private String nomeFantasia;
 	private String inscrEstadual;
 	
-	PessoaJuridica(long id, long idLocalidade, int numEndereco, String complementoEnd, Situacao situacao, long cnpj, String razaoSocial, String nomeFantasia, String inscrEstadual) throws Exception {
+	public PessoaJuridica(){}
+
+	public PessoaJuridica(long id, long idLocalidade, int numEndereco, String complementoEnd, Situacao situacao, String cnpj, String razaoSocial, String nomeFantasia, String inscrEstadual) throws Exception {
 		super(id, idLocalidade, numEndereco, complementoEnd, situacao);
 		setCnpj(cnpj);
 		setRazaoSocial(razaoSocial);
@@ -16,13 +19,16 @@ public final class PessoaJuridica extends Pessoa {
 		setInscrEstadual(inscrEstadual);
 	}
 	
-	public long getCnpj() {
-		return this.cnpj;
-	}
-	
-	public void setCnpj(long cpnj) {
-		this.cnpj = cpnj;
-	}
+	public String getCnpj() {
+        return Cnpj.aplicaMascara(Long.toString(cnpj));
+    }
+
+    public void setCnpj(String cnpj) {
+        if (!Cnpj.isCnpj(cnpj))
+            throw new RuntimeException(cnpj + " não é um CNPJ válido");
+
+        this.cnpj = Long.parseLong(Cnpj.removeMascara(cnpj));
+    }
 
 	public String getRazaoSocial() {
 		return this.razaoSocial;

@@ -20,6 +20,7 @@ public final class Cpf {
     public static String removeMascara(String cpf) {
         return cpf.replaceAll(REGEX_REMOVE_MASCARA, PLACEMENT_REMOVE_MASCARA);
     }
+    
     public static boolean isCpf(String cpf) {
         cpf = removeMascara(cpf);
         

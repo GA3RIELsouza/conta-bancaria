@@ -8,9 +8,7 @@ public interface IPessoaDAO {
 
     boolean atualizar(Pessoa p);
 
-    boolean deletar(Pessoa p);
-
-    boolean deletar(long id);
+    boolean excluir(long id);
 
     Pessoa retornarPorId(long id);
 

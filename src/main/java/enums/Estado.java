@@ -38,4 +38,11 @@ public enum Estado {
     public String getNome() {
         return nome;
     }
+
+    public static Estado fromNome(String nome) {
+        for (Estado estado : Estado.values())
+            if (estado.getNome().equalsIgnoreCase(nome))
+                return estado;
+        throw new RuntimeException("Estado inválido: " + nome);
+    }
 }

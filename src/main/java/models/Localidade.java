@@ -1,6 +1,7 @@
 package models;
 
 import enums.Estado;
+import utilities.Cep;
 
 public class Localidade {
     private long   id;
@@ -10,6 +11,8 @@ public class Localidade {
     private String bairro;
     private String logradouro;
 
+    public Localidade(){}
+
     public Localidade(long id, long cep, Estado estado, String cidade, String bairro, String logradouro) {
         setId(id);
         setCep(cep);
@@ -17,6 +20,27 @@ public class Localidade {
         setCidade(cidade);
         setBairro(bairro);
         setLogradouro(logradouro);
+    }
+
+    public Localidade(long id, long cep) {
+        Localidade localidadeBuscaCep = Cep.buscarDadosCep(cep);
+
+        setId(id);
+        setCep(cep);
+        setEstado(localidadeBuscaCep.getEstado());
+        setCidade(localidadeBuscaCep.getCidade());
+        setBairro(localidadeBuscaCep.getBairro());
+        setLogradouro(localidadeBuscaCep.getLogradouro());
+    }
+
+    @Override
+    public String toString() {
+        return "ID         : " + this.getId()     + "\n" +
+               "CEP        : " + this.getCep()    + "\n" +
+               "Estado     : " + this.getCidade() + "\n" +
+               "Cidade     : " + this.getCidade() + "\n" +
+               "Bairro     : " + this.getBairro() + "\n" +
+               "Logradouro : " + this.getLogradouro();
     }
 
     public long getId() {

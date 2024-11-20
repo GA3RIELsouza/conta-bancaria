@@ -8,8 +8,8 @@ public final class PessoaJuridica extends Pessoa {
 	private String nomeFantasia;
 	private String inscrEstadual;
 	
-	PessoaJuridica(long id, long cep, int numEndereco, String complementoEnd, Situacao situacao, long cnpj, String razaoSocial, String nomeFantasia, String inscrEstadual) throws Exception {
-		super(id, cep, numEndereco, complementoEnd, situacao);
+	PessoaJuridica(long id, long idLocalidade, int numEndereco, String complementoEnd, Situacao situacao, long cnpj, String razaoSocial, String nomeFantasia, String inscrEstadual) throws Exception {
+		super(id, idLocalidade, numEndereco, complementoEnd, situacao);
 		setCnpj(cnpj);
 		setRazaoSocial(razaoSocial);
 		setNomeFantasia(nomeFantasia);

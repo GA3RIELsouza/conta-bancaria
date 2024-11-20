@@ -13,4 +13,11 @@ public enum Situacao {
     public int getId() {
         return id;
     }
+
+    public static Situacao fromId(int id) {
+        for (Situacao situacao : Situacao.values())
+            if (situacao.getId() == id)
+                return situacao;
+        throw new RuntimeException("Situação inválida: " + id);
+    }
 }

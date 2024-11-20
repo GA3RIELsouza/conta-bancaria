@@ -186,12 +186,12 @@ public final class LocalidadeDAO implements ILocalidadeDAO {
 			if (rs.next()) {
 				localidade = new Localidade();
 				
-				localidade.setId(rs.getLong(1));
+				localidade.setId(rs.getLong("id"));
 				localidade.setCep(cep);
-				localidade.setEstado(Estado.fromNome(rs.getString(2)));
-				localidade.setCidade(rs.getString(3));
-				localidade.setBairro(rs.getString(4));
-				localidade.setLogradouro(rs.getString(5));
+				localidade.setEstado(Estado.fromNome(rs.getString("estado")));
+				localidade.setCidade(rs.getString("cidade"));
+				localidade.setBairro(rs.getString("bairro"));
+				localidade.setLogradouro(rs.getString("logradouro"));
 
 				pstm.close();
 				MySQL.desconectar(con);
@@ -229,12 +229,12 @@ public final class LocalidadeDAO implements ILocalidadeDAO {
 				localidade = new Localidade();
                 listaRetorno = new ArrayList<>();
 				
-				localidade.setId(rs.getLong(1));
-				localidade.setCep(rs.getInt(2));
-				localidade.setEstado(Estado.fromNome(rs.getString(3)));
-				localidade.setCidade(rs.getString(4));
-				localidade.setBairro(rs.getString(5));
-				localidade.setLogradouro(rs.getString(6));
+				localidade.setId(rs.getLong("id"));
+				localidade.setCep(rs.getInt("cep"));
+				localidade.setEstado(Estado.fromNome(rs.getString("estado")));
+				localidade.setCidade(rs.getString("cidade"));
+				localidade.setBairro(rs.getString("bairro"));
+				localidade.setLogradouro(rs.getString("logradouro"));
 
 				listaRetorno.add(localidade);				
 			}
@@ -272,12 +272,12 @@ public final class LocalidadeDAO implements ILocalidadeDAO {
 				localidade = new Localidade();
                 listaRetorno = new ArrayList<>();
 				
-				localidade.setId(rs.getLong(1));
-				localidade.setCep(rs.getInt(2));
-				localidade.setEstado(Estado.fromNome(rs.getString(3)));
-				localidade.setCidade(rs.getString(4));
-				localidade.setBairro(rs.getString(5));
-				localidade.setLogradouro(rs.getString(6));
+				localidade.setId(rs.getLong("id"));
+				localidade.setCep(rs.getInt("cep"));
+				localidade.setEstado(Estado.fromNome(rs.getString("estado")));
+				localidade.setCidade(rs.getString("cidade"));
+				localidade.setBairro(rs.getString("bairro"));
+				localidade.setLogradouro(rs.getString("logradouro"));
 
 				listaRetorno.add(localidade);				
 			}

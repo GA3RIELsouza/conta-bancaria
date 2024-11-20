@@ -4,24 +4,24 @@ import enums.Situacao;
 
 public abstract class Pessoa {
     private long     id;
-    private long     cep;
+    private long     idLocalidade;
     private int      numEndereco;
     private String   complEndereco;
     private Situacao situacao;
     
     public Pessoa() {}
     
-    public Pessoa(long id, long cep, int numEndereco, String complementoEnd, Situacao situacao) throws Exception {
+    public Pessoa(long id, long idLocalidade, int numEndereco, String complementoEnd, Situacao situacao) throws Exception {
         setId(id);
-    	setCep(cep);
+    	setIdLocalidade(idLocalidade);
     	setNumEndereco(numEndereco);
     	setComplEndereco(complementoEnd);
         setSituacao(situacao);
     }
     
-    public Pessoa(long id, long cep, int numEndereco, Situacao situacao) throws Exception {
+    public Pessoa(long id, long idLocalidade, int numEndereco, Situacao situacao) throws Exception {
         setId(id);
-    	setCep(cep);
+    	setIdLocalidade(idLocalidade);
     	setNumEndereco(numEndereco);
         setSituacao(situacao);
     }
@@ -33,12 +33,12 @@ public abstract class Pessoa {
     public void setId(long id) {
         this.id = id;
     }
-    public long getCep() {
-		return this.cep;
+    public long getIdLocalidade() {
+		return this.idLocalidade;
 	}
 
-	public void setCep(long cep) {
-		this.cep = cep;
+	public void setIdLocalidade(long idLocalidade) {
+		this.idLocalidade = idLocalidade;
 	}
 
 	public int getNumEndereco() {

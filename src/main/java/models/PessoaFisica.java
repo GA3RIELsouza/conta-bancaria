@@ -10,8 +10,8 @@ public final class PessoaFisica extends Pessoa {
 	private Date   dtNasc;
 	private int    sexo;
 
-	PessoaFisica(long id, long cep, int numEndereco, String complementoEnd, Situacao situacao, String cpf, String nome, Date dataNasci, int sexo) throws Exception {
-		super(id, cep, numEndereco, complementoEnd, situacao);
+	PessoaFisica(long id, long idLocalidade, int numEndereco, String complementoEnd, Situacao situacao, String cpf, String nome, Date dataNasci, int sexo) throws Exception {
+		super(id, idLocalidade, numEndereco, complementoEnd, situacao);
 		setCpf(cpf);
 		setNome(nome);
 		setDtNasc(dataNasci);

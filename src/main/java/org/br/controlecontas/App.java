@@ -75,14 +75,14 @@ public class App {
         
         // Testando métodos do DAO do telefone
         TelefoneDAO telefoneDAO = new TelefoneDAO();
-        long idTelefone;
+        long[] idTelefone;
 
-        idTelefone = telefoneDAO.incluir(new Telefone(-1, idPessoaFisica, "(47) 99291-0530", TipoTel.Movel), true);
-        telefoneDAO.consultarPorId(idTelefone);
+        idTelefone = telefoneDAO.incluir(new Telefone(idPessoaFisica, -1, "(47) 99291-0530", TipoTel.Movel), true);
+        telefoneDAO.consultarPorId(idTelefone[0], idTelefone[1]);
         telefoneDAO.consultarTodos();
-        telefoneDAO.consultarTodosPorPessoa(idPessoaFisica);
-        telefoneDAO.atualizar(new Telefone(idPessoaFisica, idTelefone, "(31) 2570-6173", TipoTel.Fixo));
-        telefoneDAO.excluir(idTelefone);
+        telefoneDAO.consultarTodosPorPessoa(idTelefone[0]);
+        telefoneDAO.atualizar(new Telefone(idTelefone[0], idTelefone[1], "(31) 2570-6173", TipoTel.Fixo));
+        telefoneDAO.excluir(idTelefone[0], idTelefone[1]);
 
         System.out.println("Classe TelefoneDAO = OK!");
     }

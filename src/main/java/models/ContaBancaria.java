@@ -1,6 +1,6 @@
 package models;
 
-import java.util.Date;
+import java.sql.Date;
 
 public abstract class ContaBancaria {
     private long    id;
@@ -10,6 +10,8 @@ public abstract class ContaBancaria {
     private double  saldo;
     private Date    dataAbertura;
     private long    idTitular;
+
+    public ContaBancaria(){}
     
     public ContaBancaria(long id, long codigoBanco, int numAgencia, long numConta, Date dataAbertura, long idTitular) {
         setId(id);
@@ -43,6 +45,23 @@ public abstract class ContaBancaria {
 
     public void setNumAgencia(int numAgencia) {
         this.numAgencia = numAgencia;
+    }
+
+    public void sacar(double valor) {
+        if (valor < 0)
+            throw new RuntimeException("Valor de saque inválido: R$" + valor);
+        
+        if (valor > this.saldo)
+            throw new RuntimeException("Valor de saque inválido: R$" + valor + ", saldo em conta: R$" + this.saldo);
+
+        this.saldo -= valor;
+    }
+
+    public void depositar(double valor) {
+        if(valor < 0)
+            throw new RuntimeException("Valor de depósito inválido: R$" + valor);
+        
+        this.saldo += valor;
     }
 
     public long getNumConta() {

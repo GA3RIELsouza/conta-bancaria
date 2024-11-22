@@ -1,6 +1,6 @@
 package models;
 
-import java.util.Date;
+import java.sql.Date;
 
 public final class ContaSalario extends ContaBancaria {
     private long    cnpjVinculado;

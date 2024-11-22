@@ -7,13 +7,13 @@ import models.Telefone;
 public interface ITelefoneDAO {
     void incluir(Telefone telefone);
 
-    long incluir(Telefone telefone, boolean retornaChave);
+    long[] incluir(Telefone telefone, boolean retornaChave);
 
     void atualizar(Telefone telefone);
 
-    void excluir(long id);
+    void excluir(long id, long idPessoa);
 
-    Telefone consultarPorId(long id);
+    Telefone consultarPorId(long id, long idPessoa);
 
     List<Telefone> consultarTodos();
 

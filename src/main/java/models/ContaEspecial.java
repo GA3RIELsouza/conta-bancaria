@@ -1,6 +1,6 @@
 package models;
 
-import java.util.Date;
+import java.sql.Date;
 
 public final class ContaEspecial extends ContaCorrente {
     private double limiteCredito;

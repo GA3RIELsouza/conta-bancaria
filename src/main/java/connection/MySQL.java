@@ -5,17 +5,18 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public final class MySQL {
-	private static final String ADDRESS  = "jdbc:mysql://localhost:3306/conta_bancaria";
-	private static final String USER     = "gerente_banco";
-	private static final String PASSWORD = "banco123";
+	private static final String BANCO   = "jdbc:mysql://localhost:3306/conta_bancaria";
+	private static final String USUARIO = "gerente_banco";
+	private static final String SENHA   = "banco123";
 
 	private MySQL(){}
 	
 	public static Connection conectar() {
 		try {
-			return DriverManager.getConnection(ADDRESS, USER, PASSWORD);
-		} catch (SQLException ex) {
-			throw new RuntimeException("Problemas ao estabelecer a conexão:\n" + ex.getMessage());
+			Class.forName("com.mysql.jdbc.Driver");
+			return DriverManager.getConnection(BANCO, USUARIO, SENHA);
+		} catch (SQLException | ClassNotFoundException ex) {
+			throw new RuntimeException("Problemas ao estabelecer conexão:\n" + ex.getMessage());
 		}
 	}
 	

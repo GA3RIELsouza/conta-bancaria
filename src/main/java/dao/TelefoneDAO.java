@@ -16,9 +16,9 @@ public class TelefoneDAO implements ITelefoneDAO {
 		incluir(telefone, false);
 	}
 	
-	public long incluir(Telefone telefone, boolean retornaId) {
+	public long[] incluir(Telefone telefone, boolean retornaId) {
 		if (telefone == null)
-			return -1;
+			return null;
 		
 		final String comando =	"""
                                 INSERT INTO telefone (id_pessoa, numero, tipo)
@@ -52,7 +52,7 @@ public class TelefoneDAO implements ITelefoneDAO {
 						
 			pstm.close();
 
-			return id;
+			return new long[]{telefone.getIdPessoa(), id};
 		} catch (SQLException e) {
 			throw new RuntimeException("Problemas ao incluir telefone:\n" + e.getMessage());
 		} finally {
@@ -66,8 +66,8 @@ public class TelefoneDAO implements ITelefoneDAO {
 		
 		final String comando =	"""
                                 UPDATE telefone
-			                    SET id_pessoa = ?, numero = ?, tipo = ?
-		                        WHERE id = ?
+			                    SET numero = ?, tipo = ?
+		                        WHERE id_pessoa = ?, id = ?
                             	""";
 		Connection        con = null;
 		PreparedStatement pstm = null;
@@ -76,9 +76,9 @@ public class TelefoneDAO implements ITelefoneDAO {
 			con = MySQL.conectar();
 			pstm = con.prepareStatement(comando);
 			
-			pstm.setLong(1, telefone.getIdPessoa());
-			pstm.setString(2, telefone.getNumero());
-			pstm.setInt(3, telefone.getTipo().getId());
+			pstm.setString(1, telefone.getNumero());
+			pstm.setInt(2, telefone.getTipo().getId());
+			pstm.setLong(3, telefone.getIdPessoa());
 			pstm.setLong(4, telefone.getId());
 			
 			pstm.execute();
@@ -91,10 +91,10 @@ public class TelefoneDAO implements ITelefoneDAO {
 		}
 	}
 
-	public void excluir(long id) {
+	public void excluir(long idPessoa, long id) {
 		final String comando =	"""
                                 DELETE FROM telefone
-		                        WHERE id = ?
+		                        WHERE id_pessoa = ?, id = ?
                                 """;
 		Connection        con = null;
 		PreparedStatement pstm = null;
@@ -103,7 +103,8 @@ public class TelefoneDAO implements ITelefoneDAO {
 			con = MySQL.conectar();
 			pstm = con.prepareStatement(comando);
 			
-			pstm.setLong(1, id);
+			pstm.setLong(1, idPessoa);
+			pstm.setLong(2, id);
 
 			pstm.execute();
 			
@@ -115,11 +116,11 @@ public class TelefoneDAO implements ITelefoneDAO {
 		}
 	}
 	
-	public Telefone consultarPorId(long id) {
+	public Telefone consultarPorId(long idPessoa, long id) {
 		final String comando =	"""
                                 SELECT id_pessoa, numero, tipo
 				                FROM telefone
-                			    WHERE id = ?
+                			    WHERE id_pessoa = ?, id = ?
                             	""";
 		Connection        con = null;
 		PreparedStatement pstm = null;
@@ -131,14 +132,15 @@ public class TelefoneDAO implements ITelefoneDAO {
 			pstm = con.prepareStatement(comando);
 			
 			pstm.setLong(1, id);
+			pstm.setLong(2, idPessoa);
 			
 			rs = pstm.executeQuery();
 			
 			if (rs.next()) {
 				telefone = new Telefone();
 				
-				telefone.setId(id);
 				telefone.setIdPessoa(rs.getLong("id_pessoa"));
+				telefone.setId(id);
 				telefone.setNumero(rs.getString("numero"));
 				telefone.setTipo(TipoTel.fromId(rs.getInt("tipo")));
 
@@ -159,7 +161,7 @@ public class TelefoneDAO implements ITelefoneDAO {
 
 	public List<Telefone> consultarTodos() {
 		final String comando =	"""
-                                SELECT id, id_pessoa, numero, tipo
+                                SELECT id_pessoa, id, numero, tipo
 	                            FROM telefone
                                 """;
 		Connection        con = null;
@@ -178,8 +180,8 @@ public class TelefoneDAO implements ITelefoneDAO {
 				telefone = new Telefone();
                 listaRetorno = new ArrayList<>();
 				
-				telefone.setId(rs.getLong("id"));
 				telefone.setIdPessoa(rs.getLong("id_pessoa"));
+				telefone.setId(rs.getLong("id"));
 				telefone.setNumero(rs.getString("numero"));
 				telefone.setTipo(TipoTel.fromId(rs.getInt("tipo")));
 
@@ -219,8 +221,8 @@ public class TelefoneDAO implements ITelefoneDAO {
 				telefone = new Telefone();
                 listaRetorno = new ArrayList<>();
 				
-				telefone.setId(rs.getLong("id"));
 				telefone.setIdPessoa(idPessoa);
+				telefone.setId(rs.getLong("id"));
 				telefone.setNumero(rs.getString("numero"));
 				telefone.setTipo(TipoTel.fromId(rs.getInt("tipo")));
 

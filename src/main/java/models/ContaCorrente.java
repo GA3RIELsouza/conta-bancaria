@@ -1,10 +1,12 @@
 package models;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class ContaCorrente extends ContaBancaria {
     private double valorCestaServicos;
     private double limitePixNoturno;
+
+    public ContaCorrente(){}
 
     public ContaCorrente(long id, long codigoBanco, int numAgencia, long numConta, Date dataAbertura, long idTitular, double valorCestaServicos, double limitePixNoturno) {
         super(id, codigoBanco, numAgencia, numConta, dataAbertura, idTitular);

@@ -9,6 +9,8 @@ public final class Evento {
     private TipoMov  tipoMovimentacao;
     private Situacao situacao;
 
+    public Evento(){}
+
     public Evento(long id, String descricao, TipoMov tipoMovimentacao, Situacao situacao) {
         setId(id);
         setDescricao(descricao);

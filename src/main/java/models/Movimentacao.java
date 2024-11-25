@@ -1,42 +1,54 @@
 package models;
 
-import java.util.Date;
+import java.sql.Date;
 
 public final class Movimentacao {
-    private long   contaBancaria;
-    private Date   data;
-    private long   evento;
+    private long   id;
+    private long   idContaBancaria;
+    private Date   dataMovimentacao;
+    private long   idEvento;
     private double valor;
 
-    public Movimentacao(long contaBancaria, Date data, long evento, double valor) {
-        setContaBancaria(contaBancaria);
-        setData(data);
-        setEvento(evento);
+    public Movimentacao(){}
+
+    public Movimentacao(long id, long idContaBancaria, Date dataMovimentacao, long idEvento, double valor) {
+        setId(id);
+        setIdContaBancaria(idContaBancaria);
+        setDataMovimentacao(dataMovimentacao);
+        setIdEvento(idEvento);
         setValor(valor);
     }
 
-    public long getContaBancaria() {
-        return this.contaBancaria;
+    public long getId() {
+        return this.id;
     }
 
-    public void setContaBancaria(long contaBancaria) {
-        this.contaBancaria = contaBancaria;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public Date getData() {
-        return this.data;
+    public long getIdContaBancaria() {
+        return this.idContaBancaria;
     }
 
-    public void setData(Date data) {
-        this.data = data;
+    public void setIdContaBancaria(long idContaBancaria) {
+        this.idContaBancaria = idContaBancaria;
     }
 
-    public long getEvento() {
-        return this.evento;
+    public Date getDataMovimentacao() {
+        return this.dataMovimentacao;
     }
 
-    public void setEvento(long evento) {
-        this.evento = evento;
+    public void setDataMovimentacao(Date dataMovimentacao) {
+        this.dataMovimentacao = dataMovimentacao;
+    }
+
+    public long getIdEvento() {
+        return this.idEvento;
+    }
+
+    public void setIdEvento(long idEvento) {
+        this.idEvento = idEvento;
     }
 
     public double getValor() {

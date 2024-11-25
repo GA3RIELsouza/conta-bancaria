@@ -1,32 +1,44 @@
 package models;
 
-import java.util.Date;
+import java.sql.Date;
 
 public final class Cotacao {
-    private long   codigo;
-    private Date   data;
+    private long   id;
+    private long   idIndiceRemuneracao;
+    private Date   dataCotacao;
     private double valor;
 
-    public Cotacao(long codigo, Date data, double valor) {
-        setCodigo(codigo);
-        setData(data);
+    public Cotacao(){}
+
+    public Cotacao(long id, long idIndiceRemuneracao, Date dataCotacao, double valor) {
+        setId(id);
+        setIdIndiceRemuneracao(idIndiceRemuneracao);
+        setDataCotacao(dataCotacao);
         setValor(valor);
     }
 
-    public long getCodigo() {
-        return this.codigo;
+    public long getId() {
+        return this.id;
     }
     
-    public void setCodigo(long codigo) {
-        this.codigo = codigo;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public Date getData() {
-        return this.data;
+    public long getIdIndiceRemuneracao() {
+        return this.idIndiceRemuneracao;
+    }
+    
+    public void setIdIndiceRemuneracao(long idIndiceRemuneracao) {
+        this.idIndiceRemuneracao = idIndiceRemuneracao;
     }
 
-    public void setData(Date data) {
-        this.data = data;
+    public Date getDataCotacao() {
+        return this.dataCotacao;
+    }
+
+    public void setDataCotacao(Date dataCotacao) {
+        this.dataCotacao = dataCotacao;
     }
 
     public double getValor() {

@@ -8,7 +8,7 @@ public class ContaCorrente extends ContaBancaria {
 
     public ContaCorrente(){}
 
-    public ContaCorrente(long id, long codigoBanco, int numAgencia, long numConta, Date dataAbertura, long idTitular, double valorCestaServicos, double limitePixNoturno) {
+    public ContaCorrente(long id, long codigoBanco, long numAgencia, long numConta, Date dataAbertura, long idTitular, double valorCestaServicos, double limitePixNoturno) {
         super(id, codigoBanco, numAgencia, numConta, dataAbertura, idTitular);
         setValorCestaServicos(valorCestaServicos);
         setLimitePixNoturno(limitePixNoturno);

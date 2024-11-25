@@ -4,26 +4,18 @@ import enums.TipoTel;
 import utilities.NumeroTelefone;
 
 public final class Telefone {
-    private long    idPessoa;
     private long    id;
+    private long    idPessoa;
     private long    numero;
     private TipoTel tipo;
 
     public Telefone(){}
 
-    public Telefone(long idPessoa, long id, String numero, TipoTel tipo) {
+    public Telefone(long id, long idPessoa, String numero, TipoTel tipo) {
         setId(id);
         setIdPessoa(idPessoa);
         setNumero(numero);
         setTipo(tipo);
-    }
-
-    public long getIdPessoa() {
-        return this.idPessoa;
-    }
-
-    public void setIdPessoa(long idPessoa) {
-        this.idPessoa = idPessoa;
     }
 
     public long getId() {
@@ -32,6 +24,14 @@ public final class Telefone {
     
     public void setId(long id) {
         this.id = id;
+    }
+
+    public long getIdPessoa() {
+        return this.idPessoa;
+    }
+
+    public void setIdPessoa(long idPessoa) {
+        this.idPessoa = idPessoa;
     }
 
     public String getNumero() {

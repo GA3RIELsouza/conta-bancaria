@@ -6,7 +6,9 @@ public final class ContaEspecial extends ContaCorrente {
     private double limiteCredito;
     private Date   dataVctoContrato;
 
-    public ContaEspecial(int id, int codigoBanco, int numAgencia, int numConta, Date dataAbertura, int idTitular, double valorCestaServicos, double limitePixNoturno, double limiteCredito, Date dataVctoContrato) {
+    public ContaEspecial(){}
+
+    public ContaEspecial(int id, long codigoBanco, long numAgencia, int numConta, Date dataAbertura, long idTitular, double valorCestaServicos, double limitePixNoturno, double limiteCredito, Date dataVctoContrato) {
         super(id, codigoBanco, numAgencia, numConta, dataAbertura, idTitular, valorCestaServicos, limitePixNoturno);
         setLimiteCredito(limiteCredito);
         setDataVctoContrato(dataVctoContrato);

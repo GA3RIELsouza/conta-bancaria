@@ -1,24 +1,28 @@
 package models;
 
-public final class IndiceRemuneracao {
-    private long   codigo;
-    private String descricao;
-    private int    periodicidade;
-    private int    situacao;
+import enums.Situacao;
 
-    public IndiceRemuneracao(long codigo, String descricao, int periodicidade, int situacao) {
-        setCodigo(codigo);
+public final class IndiceRemuneracao {
+    private long     id;
+    private String   descricao;
+    private int      periodicidade;
+    private Situacao situacao;
+
+    public IndiceRemuneracao(){}
+
+    public IndiceRemuneracao(long id, String descricao, int periodicidade, Situacao situacao) {
+        setId(id);
         setDescricao(descricao);
         setPeriodicidade(periodicidade);
         setSituacao(situacao);
     }
 
-    public long getCodigo() {
-        return this.codigo;
+    public long getId() {
+        return this.id;
     }
     
-    public void setCodigo(long codigo) {
-        this.codigo = codigo;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getDescricao() {
@@ -37,11 +41,11 @@ public final class IndiceRemuneracao {
         this.periodicidade = periodicidade;
     }
 
-    public int getSituacao() {
+    public Situacao getSituacao() {
         return this.situacao;
     }
 
-    public void setSituacao(int situacao) {
+    public void setSituacao(Situacao situacao) {
         this.situacao = situacao;
     }
 }

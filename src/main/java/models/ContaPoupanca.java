@@ -3,28 +3,22 @@ package models;
 import java.sql.Date;
 
 public final class ContaPoupanca extends ContaBancaria {
-    private int    diaAniversario;
-    private long   indiceRemuneracao;
+    private long   idIndiceRemuneracao;
     private double percRedimentoReal;
+
+    public ContaPoupanca(){}
     
-    public ContaPoupanca(int id, int codigoBanco, int numAgencia, int numConta, Date dataAbertura, long idTitular, int diaAniversario, long indiceRemuneracao, double percRedimentoReal) {
+    public ContaPoupanca(long id, long codigoBanco, long numAgencia, int numConta, Date dataAbertura, long idTitular, long idIndiceRemuneracao, double percRedimentoReal) {
         super(id, codigoBanco, numAgencia, numConta, dataAbertura, idTitular);
-        setDiaAniversario(diaAniversario);
-        setIndiceRemuneracao(indiceRemuneracao);
+        setIdIndiceRemuneracao(idIndiceRemuneracao);
         setPercRedimentoReal(percRedimentoReal);
     }
 
-    public int getDiaAniversario() {
-        return this.diaAniversario;
+    public long getIdIndiceRemuneracao() {
+        return this.idIndiceRemuneracao;
     }
-    public void setDiaAniversario(int diaAniversario) {
-        this.diaAniversario = diaAniversario;
-    }
-    public long getIndiceRemuneracao() {
-        return this.indiceRemuneracao;
-    }
-    public void setIndiceRemuneracao(long indiceRemuneracao) {
-        this.indiceRemuneracao = indiceRemuneracao;
+    public void setIdIndiceRemuneracao(long idIndiceRemuneracao) {
+        this.idIndiceRemuneracao = idIndiceRemuneracao;
     }
     public double getPercRedimentoReal() {
         return this.percRedimentoReal;

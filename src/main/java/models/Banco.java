@@ -6,6 +6,8 @@ public class Banco {
     private String mascaraAgencia;
     private String mascaraConta;
 
+    public Banco(){}
+
     public Banco(long codigo, String nome, String mascaraAgencia, String mascaraConta) {
         setCodigo(codigo);
         setNome(nome);

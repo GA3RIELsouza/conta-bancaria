@@ -51,14 +51,20 @@ public final class LocalidadeDAO implements ILocalidadeDAO {
 			}
 			else
 				id = (long) -1;
-						
-			pstm.close();
 
 			return id;
 		} catch (SQLException e) {
 			throw new RuntimeException("Problemas ao incluir localidade:\n" + e.getMessage());
 		} finally {
-            MySQL.desconectar(con);
+			try {
+				if (pstm != null)
+					pstm.close();
+				
+				if (con != null)
+					MySQL.desconectar(con);
+			} catch (SQLException ex) {
+				throw new RuntimeException("Problemas ao fechar recursos ou desconectar:\n" + ex.getMessage());
+			}
         }
 	}
 
@@ -86,13 +92,19 @@ public final class LocalidadeDAO implements ILocalidadeDAO {
 			pstm.setLong(6, localidade.getId());
 			
 			pstm.execute();
-			
-			pstm.close();
 		} catch (SQLException e) {
 			throw new RuntimeException("Problemas ao atualizar localidade:\n" + e.getMessage());
 		} finally {
-			MySQL.desconectar(con);
-		}
+			try {
+				if (pstm != null)
+					pstm.close();
+				
+				if (con != null)
+					MySQL.desconectar(con);
+			} catch (SQLException ex) {
+				throw new RuntimeException("Problemas ao fechar recursos ou desconectar:\n" + ex.getMessage());
+			}
+        }
 	}
 
 	public void excluir(long id) {
@@ -110,13 +122,19 @@ public final class LocalidadeDAO implements ILocalidadeDAO {
 			pstm.setLong(1, id);
 
 			pstm.execute();
-			
-			pstm.close();
 		} catch (SQLException e) {
 			throw new RuntimeException("Problemas ao excluir localidade:\n" + e.getMessage());
 		} finally {
-			MySQL.desconectar(con);
-		}
+			try {
+				if (pstm != null)
+					pstm.close();
+				
+				if (con != null)
+					MySQL.desconectar(con);
+			} catch (SQLException ex) {
+				throw new RuntimeException("Problemas ao fechar recursos ou desconectar:\n" + ex.getMessage());
+			}
+        }
 	}
 	
 	public Localidade consultarPorId(long id) {
@@ -147,20 +165,24 @@ public final class LocalidadeDAO implements ILocalidadeDAO {
 				localidade.setCidade(rs.getString("cidade"));
 				localidade.setBairro(rs.getString("bairro"));
 				localidade.setLogradouro(rs.getString("logradouro"));
-
-				pstm.close();
-				MySQL.desconectar(con);
 				
 				return localidade;
 			} else {
-				pstm.close();
-				MySQL.desconectar(con);
-
 				return null;
 			}
 		} catch (SQLException e) {
 			throw new RuntimeException("Problemas ao consultar localidade:\n" + e.getMessage());
-		}
+		} finally {
+			try {
+				if (pstm != null)
+					pstm.close();
+				
+				if (con != null)
+					MySQL.desconectar(con);
+			} catch (SQLException ex) {
+				throw new RuntimeException("Problemas ao fechar recursos ou desconectar:\n" + ex.getMessage());
+			}
+        }
 	}
 
 	public Localidade consultarPorCep(long cep) {
@@ -192,62 +214,26 @@ public final class LocalidadeDAO implements ILocalidadeDAO {
 				localidade.setBairro(rs.getString("bairro"));
 				localidade.setLogradouro(rs.getString("logradouro"));
 
-				pstm.close();
-				MySQL.desconectar(con);
-				
 				return localidade;
 			} else {
-				pstm.close();
-				MySQL.desconectar(con);
-
 				return null;
 			}
 		} catch (SQLException e) {
 			throw new RuntimeException("Problemas ao consultar localidade:\n" + e.getMessage());
-		}
-	}
-
-	public List<Localidade> consultarTodos() {
-		final String comando =	"""
-                                SELECT id, cep, estado, cidade, bairro, logradouro
-	                            FROM localidade
-                                """;
-		Connection        con = null;
-		PreparedStatement pstm = null;
-		ResultSet         rs   = null;
-		Localidade        localidade;
-		List<Localidade>  listaRetorno = null;
-		
-		try {
-			con = MySQL.conectar();
-			pstm = con.prepareStatement(comando);
-			
-			rs = pstm.executeQuery();
-			
-			while (rs.next()) {
-				localidade = new Localidade();
-                listaRetorno = new ArrayList<>();
+		} finally {
+			try {
+				if (pstm != null)
+					pstm.close();
 				
-				localidade.setId(rs.getLong("id"));
-				localidade.setCep(rs.getInt("cep"));
-				localidade.setEstado(Estado.fromNome(rs.getString("estado")));
-				localidade.setCidade(rs.getString("cidade"));
-				localidade.setBairro(rs.getString("bairro"));
-				localidade.setLogradouro(rs.getString("logradouro"));
-
-				listaRetorno.add(localidade);				
+				if (con != null)
+					MySQL.desconectar(con);
+			} catch (SQLException ex) {
+				throw new RuntimeException("Problemas ao fechar recursos ou desconectar:\n" + ex.getMessage());
 			}
-
-			pstm.close();
-			MySQL.desconectar(con);
-
-			return listaRetorno;
-		} catch (SQLException e) {
-			throw new RuntimeException("Problemas ao consultar localidade:\n" + e.getMessage());
-		}		
+        }
 	}
 
-	public List<Localidade> consultarTodosPorUf(Estado uf) {
+	public List<Localidade> consultarPorUf(Estado uf) {
 		final String comando =	"""
                                 SELECT id, cep, estado, cidade, bairro, logradouro
 	                            FROM localidade
@@ -281,12 +267,66 @@ public final class LocalidadeDAO implements ILocalidadeDAO {
 				listaRetorno.add(localidade);				
 			}
 
-			pstm.close();
-			MySQL.desconectar(con);
+			return listaRetorno;
+		} catch (SQLException e) {
+			throw new RuntimeException("Problemas ao consultar localidade:\n" + e.getMessage());
+		} finally {
+			try {
+				if (pstm != null)
+					pstm.close();
+				
+				if (con != null)
+					MySQL.desconectar(con);
+			} catch (SQLException ex) {
+				throw new RuntimeException("Problemas ao fechar recursos ou desconectar:\n" + ex.getMessage());
+			}
+        }	
+	}
+
+	public List<Localidade> consultarTodos() {
+		final String comando =	"""
+                                SELECT id, cep, estado, cidade, bairro, logradouro
+	                            FROM localidade
+                                """;
+		Connection        con = null;
+		PreparedStatement pstm = null;
+		ResultSet         rs   = null;
+		Localidade        localidade;
+		List<Localidade>  listaRetorno = null;
+		
+		try {
+			con = MySQL.conectar();
+			pstm = con.prepareStatement(comando);
+			
+			rs = pstm.executeQuery();
+			
+			while (rs.next()) {
+				localidade = new Localidade();
+                listaRetorno = new ArrayList<>();
+				
+				localidade.setId(rs.getLong("id"));
+				localidade.setCep(rs.getInt("cep"));
+				localidade.setEstado(Estado.fromNome(rs.getString("estado")));
+				localidade.setCidade(rs.getString("cidade"));
+				localidade.setBairro(rs.getString("bairro"));
+				localidade.setLogradouro(rs.getString("logradouro"));
+
+				listaRetorno.add(localidade);				
+			}
 
 			return listaRetorno;
 		} catch (SQLException e) {
 			throw new RuntimeException("Problemas ao consultar localidade:\n" + e.getMessage());
-		}		
+		} finally {
+			try {
+				if (pstm != null)
+					pstm.close();
+				
+				if (con != null)
+					MySQL.desconectar(con);
+			} catch (SQLException ex) {
+				throw new RuntimeException("Problemas ao fechar recursos ou desconectar:\n" + ex.getMessage());
+			}
+        }
 	}
 }

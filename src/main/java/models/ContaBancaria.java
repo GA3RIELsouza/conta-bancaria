@@ -5,7 +5,7 @@ import java.sql.Date;
 public abstract class ContaBancaria {
     private long    id;
     private long    codigoBanco;
-    private int     numAgencia;
+    private long    numAgencia;
     private long    numConta;
     private double  saldo;
     private Date    dataAbertura;
@@ -13,7 +13,7 @@ public abstract class ContaBancaria {
 
     public ContaBancaria(){}
     
-    public ContaBancaria(long id, long codigoBanco, int numAgencia, long numConta, Date dataAbertura, long idTitular) {
+    public ContaBancaria(long id, long codigoBanco, long numAgencia, long numConta, Date dataAbertura, long idTitular) {
         setId(id);
         setCodigoBanco(codigoBanco);
         setNumAgencia(numAgencia);
@@ -39,11 +39,11 @@ public abstract class ContaBancaria {
         this.codigoBanco = idBanco;
     }
 
-    public int getNumAgencia() {
+    public long getNumAgencia() {
         return this.numAgencia;
     }
 
-    public void setNumAgencia(int numAgencia) {
+    public void setNumAgencia(long numAgencia) {
         this.numAgencia = numAgencia;
     }
 

@@ -2,6 +2,8 @@ package models;
 
 import java.sql.Date;
 
+import utilities.Cnpj;
+
 public final class ContaSalario extends ContaBancaria {
     private long    cnpjVinculado;
     private double  limiteConsignado;
@@ -9,7 +11,9 @@ public final class ContaSalario extends ContaBancaria {
     private boolean permiteAntecipar13o;
     private long    idContaVinculada;
 
-    public ContaSalario(long id, long codigoBanco, int numAgencia, long numConta, Date dataAbertura, long idTitular, long cnpjVinculado, double limiteConsignado, double limiteAntecipadoMes, boolean permiteAntecipar13o, long idContaVinculada) {
+    public ContaSalario(){}
+
+    public ContaSalario(long id, long codigoBanco, long numAgencia, long numConta, Date dataAbertura, long idTitular, String cnpjVinculado, double limiteConsignado, double limiteAntecipadoMes, boolean permiteAntecipar13o, long idContaVinculada) {
         super(id, codigoBanco, numAgencia, numConta, dataAbertura, idTitular);
         setCnpjVinculado(cnpjVinculado);
         setLimiteConsignado(limiteConsignado);
@@ -18,12 +22,15 @@ public final class ContaSalario extends ContaBancaria {
         setIdContaVinculada(idContaVinculada);
     }
 
-    public long getCnpjVinculado() {
-        return this.cnpjVinculado;
+    public String getCnpjVinculado() {
+        return Cnpj.aplicaMascara(Long.toString(cnpjVinculado));
     }
 
-    public void setCnpjVinculado(long cnpjVinculado) {
-        this.cnpjVinculado = cnpjVinculado;
+    public void setCnpjVinculado(String cnpjVinculado) {
+        if (!Cnpj.isCnpj(cnpjVinculado))
+            throw new RuntimeException(cnpjVinculado + " não é um CNPJ válido");
+
+        this.cnpjVinculado = Long.parseLong(Cnpj.removeMascara(cnpjVinculado));
     }
     
     public double getLimiteConsignado() {

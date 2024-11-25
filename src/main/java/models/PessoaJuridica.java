@@ -7,11 +7,11 @@ public final class PessoaJuridica extends Pessoa {
 	private long   cnpj;
 	private String razaoSocial;
 	private String nomeFantasia;
-	private String inscrEstadual;
+	private long   inscrEstadual;
 	
 	public PessoaJuridica(){}
 
-	public PessoaJuridica(long id, long idLocalidade, int numEndereco, String complementoEnd, Situacao situacao, String cnpj, String razaoSocial, String nomeFantasia, String inscrEstadual) throws Exception {
+	public PessoaJuridica(long id, long idLocalidade, int numEndereco, String complementoEnd, Situacao situacao, String cnpj, String razaoSocial, String nomeFantasia, long inscrEstadual) throws Exception {
 		super(id, idLocalidade, numEndereco, complementoEnd, situacao);
 		setCnpj(cnpj);
 		setRazaoSocial(razaoSocial);
@@ -46,11 +46,11 @@ public final class PessoaJuridica extends Pessoa {
 		this.nomeFantasia = nomeFantasia;
 	}
 
-	public String getInscrEstadual() {
+	public long getInscrEstadual() {
 		return this.inscrEstadual;
 	}
 
-	public void setInscrEstadual(String inscrEstadual) {
+	public void setInscrEstadual(long inscrEstadual) {
 		this.inscrEstadual = inscrEstadual;
 	}
 }

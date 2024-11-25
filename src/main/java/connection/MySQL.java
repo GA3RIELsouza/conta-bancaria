@@ -13,7 +13,7 @@ public final class MySQL {
 	
 	public static Connection conectar() {
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			return DriverManager.getConnection(BANCO, USUARIO, SENHA);
 		} catch (SQLException | ClassNotFoundException ex) {
 			throw new RuntimeException("Problemas ao estabelecer conexão:\n" + ex.getMessage());
